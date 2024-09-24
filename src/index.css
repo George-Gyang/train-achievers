@@ -1,3 +1,7 @@
+.popins {
+  font-family: "Poppins", sans-serif;
+}
+
 .primary_bg {
   background-color: rgb(174 107 222);
 }
@@ -6,7 +10,7 @@
 }
 
 .secondary_bg {
-  background-color: rgb(92 166 224);
+  background-color: rgb(92 166 224) !important;
 }
 .secondary_color {
   color: rgb(92 166 224);
@@ -19,18 +23,48 @@
   color: rgb(5 11 39);
 }
 
-input:focus{
+input:focus {
   outline: unset !important;
 }
 
-.placeholder_white::placeholder{
-color: white;
+.placeholder_white::placeholder {
+  color: white;
 }
 
-.no_list{
-  list-style: none ;
+.no_list {
+  list-style: none;
 }
 
-.custom_btn{
+.custom_btn {
   border-radius: 0 20px 0 20px;
+}
+
+.transition {
+  transition: all 0.3s;
+}
+
+.hover_primary_color {
+  /* transition: all 0.2s; */
+}
+.hover_primary_color:hover {
+  color: rgb(174 107 222);
+}
+
+.hover_secondary_bg {
+  transition: all 0.2s;
+}
+.hover_secondary_bg:hover {
+  background-color: rgb(92 166 224)!important;
+}
+
+.secondary_border{
+  border-color: rgb(92 166 224);
+}
+
+.hover_effect {
+  transition: transform 0.1s !important;
+}
+
+.hover_effect:hover {
+  transform: scale(1.05) !important;
 }
