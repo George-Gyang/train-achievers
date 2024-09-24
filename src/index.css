@@ -1,0 +1,36 @@
+.primary_bg {
+  background-color: rgb(174 107 222);
+}
+.primary_color {
+  color: rgb(174 107 222);
+}
+
+.secondary_bg {
+  background-color: rgb(92 166 224);
+}
+.secondary_color {
+  color: rgb(92 166 224);
+}
+
+.navy_bg {
+  background-color: rgb(5 11 39);
+}
+.navy_color {
+  color: rgb(5 11 39);
+}
+
+input:focus{
+  outline: unset !important;
+}
+
+.placeholder_white::placeholder{
+color: white;
+}
+
+.no_list{
+  list-style: none ;
+}
+
+.custom_btn{
+  border-radius: 0 20px 0 20px;
+}
