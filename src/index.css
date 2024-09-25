@@ -1,12 +1,16 @@
+body{
+  width: 100%;
+}
+
 .popins {
   font-family: "Poppins", sans-serif;
 }
 
 .primary_bg {
-  background-color: rgb(174 107 222);
+  background-color: rgb(174 107 222) !important;
 }
 .primary_color {
-  color: rgb(174 107 222);
+  color: rgb(174 107 222) !important;
 }
 
 .secondary_bg {
