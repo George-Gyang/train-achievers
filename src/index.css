@@ -54,10 +54,10 @@ input:focus {
   transition: all 0.2s;
 }
 .hover_secondary_bg:hover {
-  background-color: rgb(92 166 224)!important;
+  background-color: rgb(92 166 224) !important;
 }
 
-.secondary_border{
+.secondary_border {
   border-color: rgb(92 166 224);
 }
 
@@ -67,4 +67,37 @@ input:focus {
 
 .hover_effect:hover {
   transform: scale(1.05) !important;
+}
+
+.box_shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.shadow_blue:hover {
+  box-shadow: 0 6px 10px 0 rgba(142, 189, 252, 0.7);
+}
+
+.path_icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.lemon_bg {
+  background-color: #dbf4e6;
+}
+.light_yellow_bg {
+  background-color: #fff1d0;
+}
+
+.light_danger_bg {
+  background-color: #f6d6d6;
+}
+
+.purple_bg {
+  background-color: #623799;
+}
+.light_purple_bg {
+  background-color: #d8c5ee;
 }

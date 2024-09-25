@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import image from "../assets/svg/live2.svg"
+import PathCard from '../components/home/PathCard'
+import IntervewsCard from '../components/home/IntervewsCard'
 
 const Home = () => {
+    const [activate, setActivate] = useState(false)
+    // useEffect(() => {
+    // setInterval(() => {
+    //     setActivate(true)
+    // }, 2000)
+    setTimeout(() => {
+        setActivate(true)
+    }, 500);
+    // }, [])
+    console.log(activate)
     return (
         <div>
             <Container className='my-5'>
@@ -16,9 +28,10 @@ const Home = () => {
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div>
-                            <img src={image} alt="" className="" />
-                        </div>
+                        {activate && (
+                            <div>
+                                <img src={image} alt="" className="" />
+                            </div>)}
                     </Col>
                 </Row>
             </Container>
@@ -29,6 +42,21 @@ const Home = () => {
                         <div className="col-md-6">
                             <p className="text-center">Select the best module for you, or combine any together if you're exploring multiple career paths.</p>
                         </div>
+                    </div>
+                    <div className="my-4">
+                            <PathCard />
+                    </div>
+                </Container>
+            </div>
+            <div className='py-5'>
+                <Container>
+                    <div className="d-flex justify-content-center">
+                        <div className="col-md-8">
+                            <p className="fw-semibold fs-2 primary_color text-center">All-in-one interview preparation</p>
+                        </div>
+                    </div>
+                    <div className="my-4">
+                        <IntervewsCard />
                     </div>
                 </Container>
             </div>
