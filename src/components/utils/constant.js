@@ -1,7 +1,7 @@
 export const navItems = [
     {
         link: "Flexible Courses",
-        route: "/"
+        route: "/flexible_courses"
     },
     {
         link: "Physical Training",

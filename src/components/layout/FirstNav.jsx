@@ -4,7 +4,7 @@ import { FaLock } from 'react-icons/fa'
 
 const FirstNav = () => {
     return (
-        <div className='navy_bg popins text-white'>
+        <div className='navy_bg d-none d-md-block popins text-white'>
             <div className="container d-flex justify-content-between">
                 <div className="">
                     <input style={{ backgroundColor: "#fff3" }} className='border-0 p-3 text-white placeholder_white' type="text" name="" placeholder='Search our courses...' id="" />

@@ -9,13 +9,15 @@ const NavbarComponent = () => {
         <div className='container popins py-3'>
             <div className="d-flex align-items-center justify-content-between">
                 <div>
-                    <h5 ><span className="primary_color">TRAIN</span><span className="secondary_color">ACHIEVERS</span></h5>
+                    <Link to={"/"} className='nav-link'>
+                        <h5 ><span className="primary_color">TRAIN</span><span className="secondary_color">ACHIEVERS</span></h5>
+                    </Link>
                 </div>
                 <div className='col-md-6 d-none d-md-block'>
                     <ul className=' d-md-flex mb-2 no_list '>
                         {
                             navItems.map((each, i) => (
-                                <li key={i} className='me-3 hover_primary_color'> <Link className='nav-link fw-semibold fs-5' to={""}>{each.link}</Link> </li>
+                                <li key={i} className='me-3 hover_primary_color'> <Link className='nav-link fw-semibold fs-5' to={each.route}>{each.link}</Link> </li>
                             ))
                         }
                         {/* <NavDropdown /> */}

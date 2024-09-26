@@ -1,4 +1,9 @@
-body{
+:root {
+  --primary-color: rgb(174 107 222);
+  --secondary-color: rgb(92 166 224);
+}
+
+body {
   width: 100%;
 }
 
@@ -73,6 +78,10 @@ input:focus {
   transform: scale(1.05) !important;
 }
 
+.carousel-container{
+  z-index: 0 !important;
+}
+
 .box_shadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -104,4 +113,31 @@ input:focus {
 }
 .light_purple_bg {
   background-color: #d8c5ee;
+}
+
+.active_dot {
+  background-color: var(--primary-color);
+}
+
+.inactive {
+  background-color: var(--secondary-color) !important;
+}
+
+#no_border {
+  /* border: 1px !important; */
+  width: 30px;
+  margin-right: 5px;
+  padding: 2px 0;
+}
+
+.inherit_text {
+  color: inherit !important;
+}
+
+.inherit_bg {
+  background-color: inherit !important;
+}
+
+.primary_border{
+  border-color: var(--primary-color) !important;
 }
