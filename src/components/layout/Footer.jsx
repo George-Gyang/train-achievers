@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <footer className='text-white'>
             <div className='py-5 navy_bg'>
-                <div className="container">
+                <div className="container mb-3">
                     <div className="d-md-flex justify-content-between">
                         <div>
                             <p className='fs-3 mb-1'>Need more information?</p>
@@ -26,7 +26,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <hr />
-                <div className="container">
+                <div className="container mt-3">
                     <div className="row">
                         <div className="col-md mb-3">
                             <div className="d-flex align-items-center mb-2">

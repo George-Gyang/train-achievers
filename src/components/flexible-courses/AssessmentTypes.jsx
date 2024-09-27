@@ -112,7 +112,7 @@ const AssessmentTypes = () => {
                             </div>
                             <div className="">
                                 <div className=" ">
-                                    <p className='border-start border-4 primary_border ps-3 secondary_color fw-semibold'>FLEXIBLE ONLINE LEARNING</p>
+                                    <p className=' border-l-4 primary_border ps-3 secondary_color fw-semibold'>FLEXIBLE ONLINE LEARNING</p>
                                     <p style={{ color: "#8c8e93" }} className="ps-3">Learn at your own pace online, giving you the freedom to fit learning around your lifestyle</p>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@ const AssessmentTypes = () => {
                             </div>
                             <div className="">
                                 <div className=" ">
-                                    <p className='border-start border-4 primary_border ps-3 secondary_color fw-semibold'>TRAINING SPECIALIST</p>
+                                    <p className='border-l-4  primary_border ps-3 secondary_color fw-semibold'>TRAINING SPECIALIST</p>
                                     <p style={{ color: "#8c8e93" }} className="ps-3">We have training specialists on hand to help guide you through your course, so you’re never alone.</p>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ const AssessmentTypes = () => {
                             </div>
                             <div className="">
                                 <div className=" ">
-                                    <p className='border-start border-4 primary_border ps-3 secondary_color fw-semibold'>PROVEN TRACK RECORD</p>
+                                    <p className='border-l-4  primary_border ps-3 secondary_color fw-semibold'>PROVEN TRACK RECORD</p>
                                     <p style={{ color: "#8c8e93" }} className="ps-3">We’ve helped countless people achieve their goals with our range of courses since 2002.</p>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@ const AssessmentTypes = () => {
                             </div>
                             <div className="">
                                 <div className=" ">
-                                    <p className='border-start border-4 primary_border ps-3 secondary_color fw-semibold'>EXPERT ADVICE</p>
+                                    <p className='border-l-4  primary_border ps-3 secondary_color fw-semibold'>EXPERT ADVICE</p>
                                     <p style={{ color: "#8c8e93" }} className="ps-3">Not sure which course is right for you? Our expert team are always on hand to offer advice.
 </p>
                                 </div>
