@@ -14,7 +14,7 @@ function Icon({ id, open }) {
     );
 }
 
-export function ViewCourseDetails() {
+export default function ViewCourseDetails() {
     const [open, setOpen] = React.useState(0);
 
     const handleOpen = (value) => setOpen(open === value ? 0 : value);

@@ -5,9 +5,10 @@ import { MdOutlineStar } from 'react-icons/md'
 import { FaCheck, FaChevronDown, FaChevronUp } from 'react-icons/fa6'
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
-import { ViewCourseDetails } from './viewCourseDetails'
+// import { ViewCourseDetails } from './viewCourseDetails'
 import { TfiTimer } from 'react-icons/tfi'
 import DetailsOption from './DetailsOption'
+import ViewCourseDetails from "./ViewCourseDetails"
 
 const CourseOverview = () => {
     return (
