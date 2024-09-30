@@ -4,6 +4,9 @@ import review from "../assets/jpg/reviewsio-badge.jpg"
 import { Link } from 'react-router-dom'
 import CourseOverview from '../components/course-details/CourseOverview'
 import WhyUs from '../components/course-details/WhyUs'
+import CourseContent from '../components/course-details/CourseContent'
+import UserReviews from '../components/course-details/UserReviews'
+import { CourseFAQ } from '../components/course-details/CourseFAQ'
 const CouseDetails = () => {
   const [isActive, setIsActive] = useState("overview")
   const toggleOption = (param) => setIsActive(param)
@@ -36,22 +39,22 @@ const CouseDetails = () => {
       <div className="container lg:px-4 xl:px-6">
         <ul className="hidden text-xl lg:flex flex-col items-center lg:flex-row justify-between">
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "overview"? "primary_color font-medium" : ""}`} to={""} >Course Overview</Link>
+            <Link onClick={() => toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "overview" ? "primary_color font-medium" : ""}`} to={""} >Course Overview</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("why-us")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us"? "primary_color font-medium" : ""}`} to={""} >Why Choose CTC?</Link>
+            <Link onClick={() => toggleOption("why-us")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us" ? "primary_color font-medium" : ""}`} to={""} >Why Choose CTC?</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us"? "primary_color font-medium" : ""}`} to={""} >Course Content</Link>
+            <Link onClick={() => toggleOption("content")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "content" ? "primary_color font-medium" : ""}`} to={""} >Course Content</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us"? "primary_color font-medium" : ""}`} to={""} >User Reviews</Link>
+            <Link onClick={() => toggleOption("reviews")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "reviews" ? "primary_color font-medium" : ""}`} to={""} >User Reviews</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us"? "primary_color font-medium" : ""}`} to={""} >FAQs</Link>
+            <Link onClick={() => toggleOption("faq")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "faq" ? "primary_color font-medium" : ""}`} to={""} >FAQs</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
-            <Link onClick={()=> toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us"? "primary_color font-medium" : ""}`} to={""} >Our Process</Link>
+            <Link onClick={() => toggleOption("overview")} className={`py-3 inline-block hover_primary_color w-full border-b lg:border-white lg:border-b-0 lg:border-t-4 border-gray-500 ${isActive === "why-us" ? "primary_color font-medium" : ""}`} to={""} >Our Process</Link>
           </li>
           <li className="inline-flex text-center w-full lg:w-auto ">
             <Link className="btn py-3 inline-block self-center my-3 px-4 mx-auto lg:mx-0 primary_bg text-white hover:bg-blue-900 font-bold custom_btn" to={""} >Book Now</Link>
@@ -61,6 +64,9 @@ const CouseDetails = () => {
       <hr />
       {isActive === "overview" && <CourseOverview />}
       {isActive === "why-us" && <WhyUs />}
+      {isActive === "content" && <CourseContent />}
+      {isActive === "reviews" && <UserReviews />}
+      {isActive === "faq" && <CourseFAQ />}
 
       <hr />
     </main>
