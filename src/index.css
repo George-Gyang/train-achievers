@@ -145,3 +145,8 @@ input:focus {
 .primary_border {
   border-color: var(--primary-color) !important;
 }
+
+.togglable_element {
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
