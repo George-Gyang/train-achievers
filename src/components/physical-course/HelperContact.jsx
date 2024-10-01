@@ -70,7 +70,7 @@ export default function HelperContact() {
                     }
                     containerProps={{ className: "-ml-2.5" }}
                 />
-                <Button className="mt-6" fullWidth>
+                <Button className="mt-6 custom_btn primary_bg" fullWidth>
                     sign up
                 </Button>
                 <Typography color="gray" className="mt-4 text-center font-normal">
