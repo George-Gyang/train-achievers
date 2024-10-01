@@ -2,6 +2,8 @@ import React from 'react'
 import { FaArrowsAlt, FaHeart, FaLongArrowAltRight, FaMicrophoneAlt, FaShieldAlt, FaStethoscope, FaUserAlt, FaWheelchair } from 'react-icons/fa'
 import nursingImg from "../assets/jpg/nursing.jpeg"
 import { BiSolidFirstAid } from 'react-icons/bi'
+import MostPopularCourses from '../components/physical-course/MostPopularCourses'
+import HelperContact from '../components/physical-course/HelperContact'
 
 const PhysicalCourses = () => {
     return (
@@ -45,7 +47,7 @@ const PhysicalCourses = () => {
                 </div>
             </div>
             <div className="bg-slate-100 py-16">
-                <div className="container">
+                <div className="container md:px-10">
                     <div className="grid md:grid-cols-4 text-white gap-4">
                         <div className="relative">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
@@ -57,7 +59,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Care</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaHeart />
                                     </div>
@@ -75,7 +77,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Clinical</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaStethoscope />
                                     </div>
@@ -93,7 +95,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Train the Trainer</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaMicrophoneAlt />
                                     </div>
@@ -111,7 +113,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">First Aid</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <BiSolidFirstAid />
                                     </div>
@@ -129,7 +131,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Safeguarding</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaShieldAlt />
                                     </div>
@@ -147,7 +149,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Mandatory</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaArrowsAlt />
                                     </div>
@@ -165,7 +167,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Conflict</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaUserAlt />
                                     </div>
@@ -183,12 +185,33 @@ const PhysicalCourses = () => {
                                 <p className="text-center text-black text-3xl font-semibold">Specials Care</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
-                                <div className="flex justify-center my-4">
+                                <div className="flex justify-center my-3">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl text-purple-700 items-center rounded-full bg-white ">
                                         <FaWheelchair />
                                     </div>
                                 </div>
                                 <p className="text-center">Subjects for those who care for individuals with more specialised needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="my-12">
+                <div className="container md:px-10">
+                    <MostPopularCourses />
+                </div>
+            </div>
+            <div className="py-16 secondary_bg">
+                <div className="container md:px-10">
+                    <div className="md:flex items-center">
+                        <div className="md:w-[50%] text-white p-4">
+                            <h2 className="h2 mb-3 text-center">Let us Help you</h2>
+                            <p className='mb-3'>We’ll help you find the right course for your needs. Tell us a little bit about your situation and what you would like to achieve.</p>
+                            <p className='mb-3'>We’ll get back to you within one working day.</p>
+                        </div>
+                        <div className="md:w-[50%]">
+                            <div className="rounded p-3 bg-white">
+                            <HelperContact />
                             </div>
                         </div>
                     </div>
