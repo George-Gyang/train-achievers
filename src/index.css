@@ -150,3 +150,17 @@ input:focus {
   transition: height 1s ease-in-out;
   overflow: hidden;
 }
+
+.sticky_nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: top 0.3s ease-in-out;
+}
+
+.sticky_nav.sticky_position {
+  top: 20px; /* Adjust this value to control the top position */
+}
