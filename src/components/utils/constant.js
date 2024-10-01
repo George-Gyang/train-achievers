@@ -5,6 +5,6 @@ export const navItems = [
     },
     {
         link: "Physical Training",
-        route: "/"
+        route: "/physical_course"
     },
 ]

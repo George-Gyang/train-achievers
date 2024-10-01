@@ -164,3 +164,7 @@ input:focus {
 .sticky_nav.sticky_position {
   top: 20px; /* Adjust this value to control the top position */
 }
+
+.opacity_1:hover{
+  opacity: 100 !important;
+}

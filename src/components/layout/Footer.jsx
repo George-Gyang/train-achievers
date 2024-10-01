@@ -51,7 +51,7 @@ const Footer = () => {
                             <ul className='no_list ps-0'>
                                 {navItems.map((each) => (
                                     <li key={each.link} className='mb-3'>
-                                        <Link className='nav-link hover_primary_color' to={""}>
+                                        <Link className='nav-link hover_primary_color' to={each.route}>
                                             {each.link}
                                         </Link>
                                     </li>
