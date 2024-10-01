@@ -46,7 +46,7 @@ const PhysicalCourses = () => {
             </div>
             <div className="bg-slate-100 py-16">
                 <div className="container">
-                    <div className="grid grid-cols-4 text-white gap-4">
+                    <div className="grid md:grid-cols-4 text-white gap-4">
                         <div className="relative">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
