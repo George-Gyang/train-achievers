@@ -6,29 +6,35 @@ import {
     Typography,
     Button,
 } from "@material-tailwind/react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function PopularCourseCard() {
+    const navigate = useNavigate();
     return (
         <Card className="mt-6">
             <div className="w-full">
                 <img
-                className="rounded-t-lg img-fluid"
-                src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                alt="card-image"
-            />
+                    className="rounded-t-lg img-fluid"
+                    src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                    alt="card-image"
+                />
             </div>
             <CardBody className="px-3 py-4">
                 <Typography variant="h5" color="blue-gray" className="mb-2 primary_color">
-                Anaemia Training
+                    Anaemia Training
                 </Typography>
-                <Typography>
+                {/* <Typography>
                     The place is close to Barceloneta Beach and bus stop just 2 min by
                     walk and near to &quot;Naviglio&quot; where you can enjoy the main
                     night life in Barcelona.
-                </Typography>
+                </Typography> */}
             </CardBody>
             <CardFooter className="pt-0 text-end p-3">
-                <Button className="custom_btn secondary_bg hover_effect normal-case p-3">View Course Content</Button>
+                <Link className="text-inherit" to={"/physical_course/course/id"}>
+                    <Button
+                        // onClick={() => navigate("/physical_course/course/id")}
+                        className="custom_btn secondary_bg hover_effect normal-case p-3">View Course Content</Button>
+                </Link>
             </CardFooter>
         </Card>
     );

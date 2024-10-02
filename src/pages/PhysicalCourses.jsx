@@ -3,9 +3,12 @@ import { FaArrowsAlt, FaHeart, FaLongArrowAltRight, FaMicrophoneAlt, FaShieldAlt
 import nursingImg from "../assets/jpg/nursing.jpeg"
 import { BiSolidFirstAid } from 'react-icons/bi'
 import MostPopularCourses from '../components/physical-course/MostPopularCourses'
-import HelperContact from '../components/physical-course/HelperContact'
+import { useNavigate } from 'react-router-dom'
+import ContactSection from '../components/general/ContactSection'
 
 const PhysicalCourses = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className="secondary_bg rounded-br-[120px] py-16">
@@ -48,8 +51,9 @@ const PhysicalCourses = () => {
             </div>
             <div className="bg-slate-100 py-16">
                 <div className="container md:px-10">
+                    <h2 className="h2 font-semibold mb-5 text-center">We Have Courses Available In</h2>
                     <div className="grid md:grid-cols-4 text-white gap-4">
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -67,7 +71,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Range of mandatory and specialize subject for all care staff</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -85,7 +89,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Specialist clinical and complex care courses. Ideal for nurses or advanced carers.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -103,7 +107,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Learn the skills to teach your own courses, we have a variety of subjects to choose from.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -121,7 +125,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Regulated First Aid qualifications through Qualsafe Awards. Meet your legal requirements.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -139,7 +143,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Variety of courses to help your staff to protect both adults and children.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -157,7 +161,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">The core skills your staff should have. Available in individual subjects or as a package.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -175,7 +179,7 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Specialist training to help care for individuals with behaviours that challenge.</p>
                             </div>
                         </div>
-                        <div className="relative">
+                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
                             <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
                                     <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
@@ -201,22 +205,7 @@ const PhysicalCourses = () => {
                     <MostPopularCourses />
                 </div>
             </div>
-            <div className="py-16 secondary_bg">
-                <div className="container md:px-10">
-                    <div className="md:flex items-center">
-                        <div className="md:w-[50%] text-white p-4">
-                            <h2 className="h2 mb-3 text-center">Let us Help you</h2>
-                            <p className='mb-3'>We’ll help you find the right course for your needs. Tell us a little bit about your situation and what you would like to achieve.</p>
-                            <p className='mb-3'>We’ll get back to you within one working day.</p>
-                        </div>
-                        <div className="md:w-[50%]">
-                            <div className="rounded p-3 bg-white">
-                            <HelperContact />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ContactSection />
         </div>
     )
 }

@@ -113,7 +113,7 @@ const CourseOverview = () => {
                         </div>
                     </div>
                     <div className="md:w-1/4">
-                        <div className="rounded bg-slate-100 p-3 md:ml-8">
+                        <div className="rounded bg-gray-100 p-3 md:ml-8">
                             <div>
                                 <img src={trainCard} className='' alt="" />
                             </div>
@@ -174,7 +174,7 @@ const CourseOverview = () => {
                             </div>
                             <div className="rounded md:w-[40%]">
                                 <div className="border rounded-r-2xl">
-                                    <h1 className="text-center border-bottom rounded-tr-2xl bg-slate-50 font-semibold text-xl p-3"> Monthly subscription</h1>
+                                    <h1 className="text-center border-bottom rounded-tr-2xl bg-gray-50 font-semibold text-xl p-3"> Monthly subscription</h1>
                                     <div className="p-3">
                                         <p className="text-center">Recurring monthly <br /> payments to split the cost.</p>
                                         <p className="text-center fs-3 fw-bold primary_color mb-3">£99.00</p>
@@ -203,7 +203,7 @@ const CourseOverview = () => {
                         </div>
                         <div className="md:w-[30%]">
                             <div className="">
-                                <div className="rounded bg-slate-100 p-3 md:ml-8">
+                                <div className="rounded bg-gray-100 p-3 md:ml-8">
                                     <div>
                                         <img src={trainCard} className='' alt="" />
                                     </div>

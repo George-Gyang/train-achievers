@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { navItems } from '../utils/constant'
 import { MdCall } from 'react-icons/md'
 import NavDropdown from './NavDropdown'
+import { MobileNav } from './MobileNav'
 
 const NavbarComponent = () => {
     return (
@@ -24,11 +25,12 @@ const NavbarComponent = () => {
                     </ul>
                 </div>
                 <div className='d-flex align-items-center'>
-                    <div className="d-md-flex  d-none fw-semibold">
+                    <div className="d-md-flex items-center d-none fw-semibold">
                         <span className='me-2 text-secondary'><MdCall /> </span>
                         <span className='me-3'>08012345678</span>
                     </div>
                     <button className='btn btn-outline-info custom_btn hover_secondary_bg secondary_border border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
+                    {/* <MobileNav /> */}
                 </div>
             </div>
         </div>
