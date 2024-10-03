@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { navItems } from '../utils/constant'
 import { MdCall } from 'react-icons/md'
 import NavDropdown from './NavDropdown'
 import { MobileNav } from './MobileNav'
+import { ResourceContext } from '../context/ResourceContext'
 
 const NavbarComponent = () => {
+    const { activeNav } = useContext(ResourceContext)
+    console.log(activeNav)
     return (
         <div className='container popins py-3'>
             <div className="d-flex align-items-center justify-content-between">
@@ -17,9 +20,12 @@ const NavbarComponent = () => {
                 <div className='col-md-6 d-none d-md-block'>
                     <ul className=' d-md-flex mb-2 no_list '>
                         {
-                            navItems.map((each, i) => (
-                                <li key={i} className='me-3 hover_primary_color'> <Link className='nav-link fw-semibold fs-5' to={each.route}>{each.link}</Link> </li>
-                            ))
+                            navItems.map((each, i) => {
+                             const activeLink = activeNav == each.link
+                                return (
+                                    <li key={i} className={`me-4 hover_primary_color text-nowrap p-1 px-2 ${activeLink ? "border-b-2 border-purple-500 border-2 rounded-full" : ""}`}> <Link className=' text-lg' to={each.route}>{each.link}</Link> </li>
+                                )
+                            })
                         }
                         {/* <NavDropdown /> */}
                     </ul>

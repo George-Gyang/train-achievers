@@ -168,3 +168,14 @@ input:focus {
 .opacity_1:hover{
   opacity: 100 !important;
 }
+
+.opacity_half::prev-sibling {
+  background-color: #623799 !important;
+opacity: 0.5 !important;
+}
+
+.home_bg{
+  max-height: 100vh;
+  background-position: center;
+  background-size: cover;
+}

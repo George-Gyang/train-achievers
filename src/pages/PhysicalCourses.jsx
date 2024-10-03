@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FaArrowsAlt, FaHeart, FaLongArrowAltRight, FaMicrophoneAlt, FaShieldAlt, FaStethoscope, FaUserAlt, FaWheelchair } from 'react-icons/fa'
 import nursingImg from "../assets/jpg/nursing.jpeg"
 import { BiSolidFirstAid } from 'react-icons/bi'
 import MostPopularCourses from '../components/physical-course/MostPopularCourses'
 import { useNavigate } from 'react-router-dom'
 import ContactSection from '../components/general/ContactSection'
+import { ResourceContext } from '../components/context/ResourceContext'
 
 const PhysicalCourses = () => {
     const navigate = useNavigate();
+    const { setActiveNav } = useContext(ResourceContext);
 
+    useEffect(() => {
+        setActiveNav("Practical Training")
+        window.scrollTo(0, 0);
+    }, [])
+        ;
     return (
         <div>
             <div className="secondary_bg rounded-br-[120px] py-16">
@@ -53,14 +60,14 @@ const PhysicalCourses = () => {
                 <div className="container md:px-10">
                     <h2 className="h2 font-semibold mb-5 text-center">We Have Courses Available In</h2>
                     <div className="grid md:grid-cols-4 text-white gap-4">
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500 ">
                                         <FaHeart />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Care</p>
+                                <p className="text-center text-black text-2xl font-semibold">Care</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -71,14 +78,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Range of mandatory and specialize subject for all care staff</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaStethoscope />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Clinical</p>
+                                <p className="text-center text-black text-2xl font-semibold">Clinical</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -89,14 +96,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Specialist clinical and complex care courses. Ideal for nurses or advanced carers.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaMicrophoneAlt />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Train the Trainer</p>
+                                <p className="text-center text-black text-2xl font-semibold">Train the Trainer</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -107,14 +114,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Learn the skills to teach your own courses, we have a variety of subjects to choose from.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <BiSolidFirstAid />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">First Aid</p>
+                                <p className="text-center text-black text-2xl font-semibold">First Aid</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -125,14 +132,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Regulated First Aid qualifications through Qualsafe Awards. Meet your legal requirements.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaShieldAlt />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Safeguarding</p>
+                                <p className="text-center text-black text-2xl font-semibold">Safeguarding</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -143,14 +150,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Variety of courses to help your staff to protect both adults and children.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaArrowsAlt />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Mandatory</p>
+                                <p className="text-center text-black text-2xl font-semibold">Mandatory</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -161,14 +168,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">The core skills your staff should have. Available in individual subjects or as a package.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaUserAlt />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Conflict</p>
+                                <p className="text-center text-black text-2xl font-semibold">Conflict</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">
@@ -179,14 +186,14 @@ const PhysicalCourses = () => {
                                 <p className="text-center">Specialist training to help care for individuals with behaviours that challenge.</p>
                             </div>
                         </div>
-                        <div onClick={() => navigate("/physical_course/course")} className="relative cursor-pointer">
-                            <div className="p-3 bg-slate-100 opacity-100 hover:opacity-0 shadow-lg rounded">
+                        <div onClick={() => navigate("/practical_course/course")} className="relative cursor-pointer">
+                            <div className="p-3 bg-slate-100 opacity-100 h-full hover:opacity-0 shadow-lg rounded">
                                 <div className="flex justify-center my-4">
-                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-sky-500 ">
+                                    <div className="size-[70px] transition-all flex justify-center hover:text-4xl text-3xl items-center rounded-full bg-light-blue-500">
                                         <FaWheelchair />
                                     </div>
                                 </div>
-                                <p className="text-center text-black text-3xl font-semibold">Specials Care</p>
+                                <p className="text-center text-black text-2xl font-semibold">Specials Care</p>
                             </div>
                             <div className="absolute  transition-all z-10 opacity-0 opacity_1 bg-purple-500 top-0 w-full h-full rounded shadow-lg">
                                 <div className="flex justify-center my-3">

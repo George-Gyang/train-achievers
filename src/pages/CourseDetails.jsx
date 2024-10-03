@@ -12,6 +12,11 @@ const CouseDetails = () => {
   const toggleOption = (param) => setIsActive(param)
   // const [isSticky, setIsSticky] = useState(false);
   // const [isAtTop, setIsAtTop] = useState(true);
+  
+  useEffect(() => {
+    // setActiveNav("Career")
+    window.scrollTo(0, 0);
+}, []);
 
   // useEffect(() => {
   //   const handleScroll = () => {

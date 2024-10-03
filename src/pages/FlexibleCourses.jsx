@@ -1,24 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import image from "../assets/home-hero.webp"
-import PathCard from '../components/home/PathCard'
-import IntervewsCard from '../components/home/IntervewsCard'
+import PathCard from '../components/prep-training/PathCard'
+import IntervewsCard from '../components/prep-training/IntervewsCard'
 import CourseCard from '../components/flexible-courses/CourseCard'
 import CourseSlider from '../components/flexible-courses/CourseSlider'
 import Partners from '../components/flexible-courses/Partners'
 import AssessmentTypes from '../components/flexible-courses/AssessmentTypes'
+import { ResourceContext } from '../components/context/ResourceContext'
 
 const FlexibleCourses = () => {
     const [activate, setActivate] = useState(false)
-    // useEffect(() => {
-    // setInterval(() => {
-    //     setActivate(true)
-    // }, 2000)
+    const { setActiveNav } = useContext(ResourceContext);
+
+    useEffect(() => {
+        setActiveNav("RQF/NVQ Courses")
+        window.scrollTo(0, 0);
+    }, [])
+
     setTimeout(() => {
         setActivate(true)
     }, 500);
-    // }, [])
-    console.log(activate)
+
+    console.log(activate);
+
     return (
         <div>
             <Container className='mb-'>

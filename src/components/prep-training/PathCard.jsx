@@ -29,7 +29,7 @@ const PathCard = () => {
                         </div>
                     </div>
                     <p className="text-center fs-3 fw-semibold">
-                        Product Management
+                        Home Care
                     </p>
                 </div>
             </Col>
@@ -41,7 +41,7 @@ const PathCard = () => {
                         </div>
                     </div>
                     <p className="text-center fs-3 fw-semibold">
-                        Product Marketing
+                        Care Assistant
                     </p>
                 </div>
             </Col>
@@ -53,7 +53,7 @@ const PathCard = () => {
                         </div>
                     </div>
                     <p className="text-center fs-3 fw-semibold">
-                        Strategy & BizOps
+                        Nursing
                     </p>
                 </div>
             </Col>
@@ -65,7 +65,7 @@ const PathCard = () => {
                         </div>
 
                         <p className="text-center mb-0 ms-3 fs-3 fw-semibold">
-                           Behavioural Interviews
+                            Behavioural Interviews
                         </p>
                     </div>
                 </div>
