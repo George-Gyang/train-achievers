@@ -31,10 +31,12 @@ const FlexibleCourses = () => {
                     <Col md={6}>
                         <div className=" text-dark mb-4 pt-5 mb-md-0">
                             <p className='primary_color mb-0 text-uppercase fw-bold'>Unlimited potential</p>
-                            <h1 className='display-5 mb-4 fw-bold'>Flexible Online <br /> Training Courses.</h1>
+                            <h1 data-aos="fade-right" data-aos-delat={400} className='display-5 mb-4 fw-bold'>Flexible Online <br /> Training Courses.</h1>
                             <p className='col-md-9'>Flexible online training courses mean you can fit learning in around your lifestyle. We’ve already helped countless people unlock their potential, so what are you waiting for?</p>
-                            <button className='btn mt-4 me-3 secondary_bg hover_effect text-white custom_btn border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Sign up today</button>
-                            <button className='btn  mt-4 btn-outline-black custom_btn hover_secondary_bg border-black border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
+                            <div data-aos="fade-up" className="">
+                                <button className='btn mt-4 me-3 secondary_bg hover_effect text-white custom_btn border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Sign up today</button>
+                                <button className='btn  mt-4 btn-outline-black custom_btn hover_secondary_bg border-black border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
+                            </div>
                         </div>
                     </Col>
                     <Col md={6}>
