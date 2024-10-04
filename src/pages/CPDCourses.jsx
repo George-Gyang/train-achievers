@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Card from '../components/general/Card'
 import MaterialCard from '../components/general/Card'
 import { Link } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa6'
 import MyProfile from '../CPD/MyProfile'
 import CPDCourseSlider from '../CPD/CPDCourseSlider'
+import { ResourceContext } from '../components/context/ResourceContext'
 
 const CPDCourses = () => {
+    const { setActiveNav } = useContext(ResourceContext);
+    useEffect(() => {
+        setActiveNav("CPD Courses")
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className='bg-gray-50 py-5'>
             <div className="pb-5">

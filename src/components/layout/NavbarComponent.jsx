@@ -23,7 +23,7 @@ const NavbarComponent = () => {
                             navItems.map((each, i) => {
                              const activeLink = activeNav == each.link
                                 return (
-                                    <li key={i} className={`me-4 hover_primary_color text-nowrap p-1 px-2 ${activeLink ? "border-b-2 border-purple-500 border-2 rounded-full" : ""}`}> <Link className=' text-lg' to={each.route}>{each.link}</Link> </li>
+                                    <li key={i} className={`me-4 hover_primary_color font-medium text-nowrap p-1 px-2 ${activeLink ? "border-b-2 border-purple-500 border-2 rounded-full" : ""}`}> <Link className=' text-lg' to={each.route}>{each.link}</Link> </li>
                                 )
                             })
                         }

@@ -31,10 +31,15 @@ const PhysicalCourses = () => {
                             </div>
                         </div>
                         <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">
+                            <div style={{ backgroundImage: `url(${nursingImg})`, backgroundSize: "cover" }} className="my-5 size-[250px] md:size-[350px] rounded-full">
+                                {/* <img src={nursingImg} alt="" className="size-[200px] md:size-[300px] rounded-full" /> */}
+                            </div>
+                        </div>
+                        {/* <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">
                             <div className="my-5 size-[200px">
                                 <img src={nursingImg} alt="" className="size-[200px] md:size-[300px] rounded-full" />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
