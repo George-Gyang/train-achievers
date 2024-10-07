@@ -61,7 +61,7 @@ export function MobileNav() {
                     </ul>
                     <div className="flex mt-4">
                         <Button className="custom_btn py-3 secondary_bg text-white/90" size="sm" variant="outlined">
-                            Documentation
+                            Contact us
                         </Button>
                     </div>
                 </Drawer>
