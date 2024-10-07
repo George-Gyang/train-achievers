@@ -16,7 +16,7 @@ body {
 }
 
 .primary_bg {
-  background-color: rgb(174 107 222) ;
+  background-color: #ae6bde;
 }
 .primary_color {
   color: rgb(174 107 222);
@@ -165,17 +165,28 @@ input:focus {
   top: 20px; /* Adjust this value to control the top position */
 }
 
-.opacity_1:hover{
+.opacity_1:hover {
   opacity: 100 !important;
 }
 
 .opacity_half::prev-sibling {
   background-color: #623799 !important;
-opacity: 0.5 !important;
+  opacity: 0.5 !important;
 }
 
-.home_bg{
+.home_bg {
   max-height: 100vh;
   background-position: center;
   background-size: cover;
+}
+
+.login_bg {
+  background: rgb(92, 166, 224);
+  background: radial-gradient(
+    circle,
+    rgba(92, 166, 224, 1) 11%,
+    rgba(174, 107, 222, 1) 44%,
+    rgba(255, 255, 255, 1) 69%,
+    rgba(146, 196, 234, 1) 69%
+  );
 }

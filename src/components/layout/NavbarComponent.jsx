@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { navItems } from '../utils/constant'
 import { MdCall } from 'react-icons/md'
 import NavDropdown from './NavDropdown'
@@ -8,7 +8,8 @@ import { ResourceContext } from '../context/ResourceContext'
 
 const NavbarComponent = () => {
     const { activeNav } = useContext(ResourceContext)
-    console.log(activeNav)
+    const navigate = useNavigate();
+    // console.log(activeNav)
     return (
         <div className='container popins py-3'>
             <div className="d-flex align-items-center justify-content-between">
@@ -21,7 +22,7 @@ const NavbarComponent = () => {
                     <ul className=' d-md-flex mb-2 no_list '>
                         {
                             navItems.map((each, i) => {
-                             const activeLink = activeNav == each.link
+                                const activeLink = activeNav == each.link
                                 return (
                                     <li key={i} className={`me-4 hover_primary_color font-medium text-nowrap p-1 px-2 ${activeLink ? "border-b-2 border-purple-500 border-2 rounded-full" : ""}`}> <Link className=' text-lg' to={each.route}>{each.link}</Link> </li>
                                 )
@@ -35,7 +36,7 @@ const NavbarComponent = () => {
                         <span className='me-2 text-secondary'><MdCall /> </span>
                         <span className='me-3'>08012345678</span>
                     </div>
-                    <button className='btn btn-outline-info custom_btn hover_secondary_bg secondary_border border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
+                    <button onClick={() => navigate("/login")} className='btn btn-outline-info custom_btn hover_secondary_bg secondary_border border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
                     {/* <MobileNav /> */}
                 </div>
             </div>

@@ -12,6 +12,9 @@ import PhysicalCourseDetails from './pages/PhysicalCourseDetails'
 import ResourceContextProvider from './components/context/ResourceContext'
 import PrepTraining from './pages/PrepTraining'
 import CPDCourses from './pages/CPDCourses'
+import Login from './pages/Login'
+import RegistrationForm from './components/registeration/RegistrationForm'
+import Registration from './pages/Registration'
 
 
 const App = () => {
@@ -38,6 +41,8 @@ const App = () => {
             <Route path='/practical_course/course/:id' element={<PhysicalCourseDetails />} />
             <Route path='/prep_training' element={<PrepTraining />} />
             <Route path='/cdp_course' element={<CPDCourses />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/registration' element={<Registration />} />
           </Route>
         </Routes>
       </BrowserRouter>
