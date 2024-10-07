@@ -8,7 +8,7 @@ import { ResourceContext } from '../context/ResourceContext'
 
 const NavbarComponent = () => {
     const { activeNav } = useContext(ResourceContext)
-    const navigate = useNavigate();
+    const navigate = useNavigate
     // console.log(activeNav)
     return (
         <div className='container popins py-3'>
@@ -32,12 +32,14 @@ const NavbarComponent = () => {
                     </ul>
                 </div>
                 <div className='d-flex align-items-center'>
-                    <div className="d-md-flex items-center d-none fw-semibold">
+                    {/* <div className="d-md-flex items-center d-none fw-semibold">
                         <span className='me-2 text-secondary'><MdCall /> </span>
                         <span className='me-3'>08012345678</span>
+                    </div> */}
+                    <button className='hidden md:block btn btn-outline-info custom_btn hover_secondary_bg secondary_border border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
+                    <div className="md:hidden">
+                        <MobileNav />
                     </div>
-                    <button onClick={() => navigate("/login")} className='btn btn-outline-info custom_btn hover_secondary_bg secondary_border border-2 p-2 p-md-3 px-md-4 fw-semibold f-5' >Contact Us</button>
-                    {/* <MobileNav /> */}
                 </div>
             </div>
         </div>
