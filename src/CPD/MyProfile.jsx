@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { VscBook } from 'react-icons/vsc'
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 
-const MyProfile = () => {
+const MyProfile = ({userInfo}) => {
     return (
         <div>
             <div className="container">
@@ -18,7 +18,7 @@ const MyProfile = () => {
                                 </div>
                             </div>
                             <div className="px-3 text-center text-md-start text-black">
-                                <h3 className="text-lg md:text-xl font-semibold ">George Jammy</h3>
+                                <h3 className="text-lg md:text-xl font-semibold ">{userInfo.details.firstName} {userInfo.details.lastName}</h3>
                                 <p>0 Certificates</p>
                                 <Link className='primary_color' to={""}>Edit Profile</Link>
                             </div>

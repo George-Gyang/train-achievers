@@ -58,9 +58,10 @@ export default function LoginComponent() {
                 setUserInfo(response.data)
                 localStorage.setItem("userDetails", JSON.stringify(response.data));
                 setLoading(false)
-                navigate("/");
+                navigate("/dashboard");
             })
             .catch((error) => {
+                console.log(error)
                 if (error.response) {
                     setErrorMsg(error.response.data.message)
                     setLoading(false);

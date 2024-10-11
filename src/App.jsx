@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Aos from 'aos'
 import 'react-toastify/dist/ReactToastify.css';
 import "aos/dist/aos.css"
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Layouts from './components/layout/Layout'
 import Home from './pages/Home'
 import FlexibleCourses from './pages/FlexibleCourses'
@@ -17,12 +17,14 @@ import Login from './pages/Login'
 import RegistrationForm from './components/registeration/RegistrationForm'
 import Registration from './pages/Registration'
 import { ToastContainer } from 'react-toastify'
-import AuthContextProvider from './components/context/AuthContext';
+import { AuthContext } from './components/context/AuthContext';
 import CPDDetails from './pages/CPDDetails';
 import Dashboard from './pages/Dashboard';
+import NotFound from './pages/NotFound';
 
 
 const App = () => {
+  const { userInfo } = useContext(AuthContext)
   useEffect(() => {
     Aos.init({
       // disable: 'mobile',
@@ -48,28 +50,30 @@ const App = () => {
         theme="light"
         transition:Bounce
       />
-      <AuthContextProvider>
-        <ResourceContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Layouts />}>
-                <Route index element={<Home />} />
-                <Route path='/rqfnvq_courses' element={<FlexibleCourses />} />
-                <Route path='/course/:id' element={<CourseDetails />} />
-                <Route path='/practical_course' element={<PhysicalCourses />} />
-                <Route path='/practical_course/course' element={<PhysicalCourseList />} />
-                <Route path='/practical_course/course/:id' element={<PhysicalCourseDetails />} />
-                <Route path='/prep_training' element={<PrepTraining />} />
-                <Route path='/cpd_course' element={<CPDCourses />} />
-                <Route path='/cpd_course/:id' element={<CPDDetails />} />
+      <ResourceContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Layouts />}>
+              <Route index element={<Home />} />
+              <Route path='/rqfnvq_courses' element={<FlexibleCourses />} />
+              <Route path='/course/:id' element={<CourseDetails />} />
+              <Route path='/practical_course' element={<PhysicalCourses />} />
+              <Route path='/practical_course/course' element={<PhysicalCourseList />} />
+              <Route path='/practical_course/course/:id' element={<PhysicalCourseDetails />} />
+              <Route path='/prep_training' element={<PrepTraining />} />
+              <Route path='/cpd_course' element={<CPDCourses />} />
+              <Route path='/cpd_course/:id' element={<CPDDetails />} />
+              {userInfo && (
                 <Route path='/dashboard' element={<Dashboard />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/registration' element={<Registration />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </ResourceContextProvider>
-      </AuthContextProvider>
+              )}
+              < Route path='/login' element={<Login />} />
+              <Route path='/registration' element={<Registration />} />
+                <Route path="*" element={<Navigate to="/not-found" replace />} />
+                <Route path="/not-found" element={<NotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ResourceContextProvider>
     </>
   )
 }

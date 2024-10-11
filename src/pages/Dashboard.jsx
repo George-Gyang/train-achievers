@@ -6,9 +6,11 @@ import { FaUser } from 'react-icons/fa6'
 import MyProfile from '../CPD/MyProfile'
 import CPDCourseSlider from '../CPD/CPDCourseSlider'
 import { ResourceContext } from '../components/context/ResourceContext'
+import { AuthContext } from '../components/context/AuthContext'
 
 const Dashboard = () => {
     const { setActiveNav } = useContext(ResourceContext);
+    const { userInfo } = useContext(AuthContext);
     useEffect(() => {
         setActiveNav("CPD Courses")
         window.scrollTo(0, 0);
@@ -17,7 +19,7 @@ const Dashboard = () => {
     return (
         <div className='bg-gray-50 py-5'>
             <div className="pb-5">
-                <MyProfile />
+                <MyProfile userInfo={userInfo} />
             </div>
             <div className="container my-5">
                 <div className="bg-white rounded p-4 pb-5">
