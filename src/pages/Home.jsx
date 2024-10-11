@@ -29,7 +29,7 @@ const Home = () => {
             title: "CPD Courses ",
             icon: <FaStethoscope size={30} />,
             summary: "Explore our courses, where specialized learning meets your career needs. From nursing essentials to healthcare management, our curated courses ensure targeted development for professionals like you",
-            route: "cdp_course"
+            route: "cpd_course"
         },
         {
             title: "Prep Training ",

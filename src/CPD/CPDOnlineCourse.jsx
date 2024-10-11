@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import MaterialCard from '../components/general/Card'
 import { MdOutlineLibraryBooks } from 'react-icons/md'
 import { IoMdTime } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
 
 const CPDOnlineCourse = () => {
-    const [hoverAction, setHoverAction] = useState(false)
+    const [hoverAction, setHoverAction] = useState(false);
+    const navigate = useNavigate();
     return (
         <MaterialCard>
             <div onMouseOver={() => setHoverAction(true)}
@@ -22,10 +24,10 @@ const CPDOnlineCourse = () => {
                         <button className='btn border mr-2 flex items-center text-sm'> <MdOutlineLibraryBooks className='mr-1 text-purple-600/30' /> 11 chapters</button>
                         <button className='btn border flex items-center text-sm'> <IoMdTime className='mr-1 text-purple-600/30' /> 30 mins</button>
                     </div>
-                    <button className='btn w-full bg-purple-600/30 mt-3 custom_btn hover:bg-purple-500 hover:text-white text-purple-600'>Start Training</button>
+                    <button onClick={() => navigate("/cpd_course/id")} className='btn w-full bg-purple-600/30 mt-3 custom_btn hover:bg-purple-500 hover:text-white text-purple-600'>Start Training</button>
                 </div>
             </div>
-        </MaterialCard>
+        </MaterialCard >
     )
 }
 

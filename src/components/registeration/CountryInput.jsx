@@ -9,7 +9,7 @@ import {
     Button,
 } from "@material-tailwind/react";
 
-export function CountryInput() {
+export function CountryInput({ details, handleOnChange }) {
     const { countries } = useCountries();
     const [country, setCountry] = React.useState(0);
     const { name, flags, countryCallingCode } = countries[country];
@@ -54,6 +54,9 @@ export function CountryInput() {
             </Menu>
             <Input
                 type="tel"
+                name="phone"
+                value={details.phone}
+                onChange={handleOnChange}
                 placeholder="Mobile Number"
                 className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
                 labelProps={{
