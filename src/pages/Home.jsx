@@ -10,6 +10,7 @@ import OnlineCoursesSection from '../components/home/OnlineCoursesSection'
 import PrepTrainingSection from '../components/home/PrepTrainingSection'
 import { FaRegArrowAltCircleRight } from 'react-icons/fa'
 import ContactSection from '../components/general/ContactSection'
+import homeVid from "../assets/video/home_vid2.mp4";
 
 const Home = () => {
     const features = [
@@ -41,10 +42,20 @@ const Home = () => {
     return (
         <div className=''>
             <div className='secondary_bg'>
-                <div style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }} className='home_bg' >
-                    <div className="bg-light-blue-700/70 h-screen md:h-[1000px]">
+                <div style={{ backgroundImage: `url(${image})`, backgroundSize: "cover" }} className='h-[100vh] relative' >
+                    <div className='h-full'>
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playbackRate="2"
+                            preload={"auto"}
+                            className='w-full h-full object-cover'
+                            src={homeVid}></video>
+                    </div>
+                    <div className="absolute flex items-center w-full h-full top-0 bg-black/50 h-screen">
                         <div className='container text-white'>
-                            <div className="md:w-[70%] pt-12">
+                            <div className="md:w-[70%] pt-12  pt-md-0">
                                 <div data-aos="fade-down" className="">
                                     <span className=" px-3 border-b-8 border-purple-700"></span>
                                     <p className="mt-2 mb-2 uppercase">Total Home Care solution</p>
