@@ -32,8 +32,9 @@ export default function PopularCourseCard() {
             <CardFooter className="pt-0 text-end p-3">
                 <Link className="text-inherit" to={"/practical_course/course/id"}>
                     <Button
+                        size="sm"
                         // onClick={() => navigate("/practical_course/course/id")}
-                        className="custom_btn secondary_bg hover_effect normal-case p-3">View Course Content</Button>
+                        className="rounded-full w-full secondary_bg transition-all hover:bg-purple-300 normal-case text-base">View Course Content</Button>
                 </Link>
             </CardFooter>
         </Card>

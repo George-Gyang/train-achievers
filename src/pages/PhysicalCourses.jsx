@@ -43,7 +43,7 @@ const PhysicalCourses = () => {
                     </div>
                 </div>
             </div>
-            <div className="container my-16">
+            {/* <div className="container my-16">
                 <div className="flex justify-center">
                     <div className="md:w-[80%] flex gap-4 items-center">
                         <div className="col-md-2">
@@ -60,8 +60,8 @@ const PhysicalCourses = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="bg-slate-100 py-16">
+            </div> */}
+            {/* <div className="bg-slate-100 py-16">
                 <div className="container md:px-10">
                     <h2 className="h2 font-semibold mb-5 text-center">We Have Courses Available In</h2>
                     <div className="grid md:grid-cols-4 text-white gap-4">
@@ -211,7 +211,7 @@ const PhysicalCourses = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="my-12">
                 <div className="container md:px-10">
                     <MostPopularCourses />

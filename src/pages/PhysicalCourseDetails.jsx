@@ -5,6 +5,7 @@ import { BsStack } from 'react-icons/bs'
 import { FaArrowRight, FaCertificate, FaCheck, FaClock } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import GroupEnquirySection from '../components/general/GroupEnquirySection'
+import CourseTable from '../components/physical-course/CourseTable'
 
 const PhysicalCourseDetails = () => {
     useEffect(() => {
@@ -46,6 +47,9 @@ const PhysicalCourseDetails = () => {
             </div>
             <div className="my-14">
                 <div className="container md:px-12">
+                    <div className="my-24">
+                        <CourseTable />
+                    </div>
                     <div className="md:flex">
                         <div className="md:w-[40%]">
                             <div className="mr-5 mb-5">
