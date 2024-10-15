@@ -21,6 +21,8 @@ import { AuthContext } from './components/context/AuthContext';
 import CPDDetails from './pages/CPDDetails';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
+import AdminLayout from './admin-layout/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 
 const App = () => {
@@ -66,10 +68,27 @@ const App = () => {
               {userInfo && (
                 <Route path='/dashboard' element={<Dashboard />} />
               )}
+              <Route path='/admin' >
+                <Route index element={<Login />} />
+                {userInfo && (
+                  <Route path='/admin/dashboard' element={<AdminLayout />}>
+                    <Route index element={<AdminDashboard />} />
+                    {/* <Route path='/admin/dashboard/add_user' element={<AddUser />} />
+                    <Route path='/admin/dashboard/career_portal' element={<AdminCareer />} />
+                    <Route path='/admin/dashboard/admin_portal' element={<AdminPortal />} />
+                    <Route path='/admin/dashboard/housing_portal' element={<HousingPortal />} />
+                    <Route path='/admin/dashboard/job_applications' element={<JobApplications />} />
+                    <Route path='/admin/dashboard/messages' element={<ContactMessages />} />
+                    <Route path='/admin/dashboard/request' element={<CallBackRequest />} />
+                    <Route path='/admin/dashboard/reviews' element={<ReviewsPortal />} /> */}
+                  </Route>
+                )}
+
+              </Route>
               < Route path='/login' element={<Login />} />
               <Route path='/registration' element={<Registration />} />
-                <Route path="*" element={<Navigate to="/not-found" replace />} />
-                <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/not-found" replace />} />
+              <Route path="/not-found" element={<NotFound />} />
             </Route>
           </Routes>
         </BrowserRouter>

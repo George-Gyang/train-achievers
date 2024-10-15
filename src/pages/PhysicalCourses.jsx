@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { FaArrowsAlt, FaHeart, FaLongArrowAltRight, FaMicrophoneAlt, FaShieldAlt, FaStethoscope, FaUserAlt, FaWheelchair } from 'react-icons/fa'
 import nursingImg from "../assets/jpg/nursing.jpeg"
-import { BiSolidFirstAid } from 'react-icons/bi'
 import MostPopularCourses from '../components/physical-course/MostPopularCourses'
 import { useNavigate } from 'react-router-dom'
 import ContactSection from '../components/general/ContactSection'
@@ -15,7 +14,6 @@ const PhysicalCourses = () => {
         setActiveNav("Practical Training")
         window.scrollTo(0, 0);
     }, [])
-        ;
     return (
         <div>
             <div className="secondary_bg rounded-br-[120px] py-16">

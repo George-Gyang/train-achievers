@@ -128,7 +128,7 @@ const Home = () => {
                     </div>
                 </section>
                 <OnlineCoursesSection />
-                <PhysicalCoursesSecton />
+                {/* <PhysicalCoursesSecton /> */}
                 <PrepTrainingSection />
                 <ContactSection />
             </div>

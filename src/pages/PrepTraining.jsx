@@ -25,7 +25,7 @@ const PrepTraining = () => {
                             <p className='secondary_color fw-semibold'>We give you the tools to land your dream job</p>
                             <h1 className='display-5 my-4 fw-semibold'>Comprehensive, skills-driven interview prep</h1>
                             <p>Built by experts from McKinsey, BCG, Google and Amazon.</p>
-                            <button className='btn mt-4 secondary_bg hover_effect text-white custom_btn border-2 p-3 px-4 fw-semibold f-5' >Sign up today</button>
+                            <button className='btn mt-4 secondary_bg hover_effect hover:bg-purple-300 text-white custom_btn border-2 p-3 px-4 fw-semibold f-5' >Sign up today</button>
                         </div>
                     </Col>
                     <Col md={6}>
