@@ -142,6 +142,13 @@ input:focus {
   background-color: inherit !important;
 }
 
+div:has(.hello_world) {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.sidebar_container:has(.sidebar_opacity) > div:first-child {
+  background-color: red !important;
+}
 .primary_border {
   border-color: var(--primary-color) !important;
 }

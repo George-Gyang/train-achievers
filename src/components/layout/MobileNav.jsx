@@ -20,11 +20,11 @@ export function MobileNav() {
 
     return (
         <>
-            <div>
+            <div className="sidebar_container">
                 <Button className="px-3 py-2 md:p-3 bg-white/90 border shadow-none border-black text-black/90 hover:bg-purple-500 hover:text-white flex items-center custom_btn" onClick={openDrawer}>
                     MENU<FiMenu className="ml-2" size={20} />
                 </Button>
-                <Drawer placement="right" overlay={false} open={open} onClose={closeDrawer} className=" p-4 opacity_half">
+                <Drawer placement="right" overlay={false } open={open} onClose={closeDrawer} className=" p-4">
                     <div className="mb-6 flex items-center justify-between">
                         <Typography variant="h6" color="blue-gray">
                             <Link to={"/"} className='nav-link text-center'>
