@@ -1,6 +1,7 @@
-import { Card, Typography } from "@material-tailwind/react";
+import { Button, Card, Typography } from "@material-tailwind/react";
+import AssignAdmin from "./AssignAdmin";
 
-const TABLE_HEAD = ["Date", "Time", "Venue", "Course", "Type",];
+const TABLE_HEAD = ["First Name", "Last Name", "Phone", "Mail", "Role", ""];
 
 const TABLE_ROWS = [
     {
@@ -33,7 +34,7 @@ const TABLE_ROWS = [
     },
 ];
 
-export default function CourseTable({data}) {
+export default function UsersTable({ data, setGetAllUsers }) {
     return (
         <Card className="h-full w-full overflow">
             <table className="w-full min-w-max table-auto text-left">
@@ -53,38 +54,38 @@ export default function CourseTable({data}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {data?.map(({ date, time, venue, courseTitle, type }, index) => (
+                    {data?.map(({ firstName, lastName, phone, email, role, id }, index) => (
                         <tr key={index} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {date}
+                                    {firstName}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {time}
+                                    {lastName}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {venue}
+                                    {phone}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {courseTitle}
+                                    {email}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
-                                    {type}
+                                    {role}
                                 </Typography>
                             </td>
-                            {/* <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                                    Edit
-                                </Typography>
-                            </td> */}
+                            <td className="p-4">
+                                <AssignAdmin
+                                id={id}
+                                 setGetAllUsers={setGetAllUsers} />
+                            </td>
                         </tr>
                     ))}
                 </tbody>

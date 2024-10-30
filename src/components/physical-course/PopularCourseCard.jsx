@@ -8,9 +8,9 @@ import {
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function PopularCourseCard({course}) {
+export default function PopularCourseCard({ course }) {
     const navigate = useNavigate();
-    console.log(course)
+
     return (
         <Card className="mt-6">
             <div className="w-full">
@@ -31,12 +31,12 @@ export default function PopularCourseCard({course}) {
                 </Typography> */}
             </CardBody>
             <CardFooter className="pt-0 text-end p-3">
-                <Link className="text-inherit" to={"/practical_course/course/id"}>
-                    <Button
-                        size="sm"
-                        // onClick={() => navigate("/practical_course/course/id")}
-                        className="rounded-full w-full secondary_bg transition-all hover:bg-purple-300 normal-case text-base">View Course Content</Button>
-                </Link>
+                {/* <Link className="text-inherit" to={`/practical_course/${course.id}`}> */}
+                <Button
+                    size="sm"
+                    onClick={() => navigate(`/practical_course/${course.id}`, { state: { course: course } })}
+                    className="rounded-full w-full secondary_bg transition-all hover:bg-purple-300 normal-case text-base">View Course Content</Button>
+                {/* </Link> */}
             </CardFooter>
         </Card>
     );

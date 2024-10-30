@@ -1,17 +1,73 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import nursingImg from "../assets/jpg/nursing.jpeg"
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { BsStack } from 'react-icons/bs'
 import { FaArrowRight, FaCertificate, FaCheck, FaClock } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import GroupEnquirySection from '../components/general/GroupEnquirySection'
 import CourseTable from '../components/physical-course/CourseTable'
+import { BASE_URL } from '../components/utils/base'
 
 const PhysicalCourseDetails = () => {
+    const { id } = useParams();
+    const { state } = useLocation();
+    const [data, setData] = useState();
+    const { course } = state;
     useEffect(() => {
         // setActiveNav("Career")
         window.scrollTo(0, 0);
     }, []);
+
+    const deleteFunc = async () => {
+
+        // setGetAllJobs((prev) => {
+        //     return {
+        //         ...prev, isDataNeeded: false
+        //     }
+        // })
+        // setIsDeleting(true)
+        const params = {
+            method: 'GET',
+            headers: {
+                'Content-Type': "application/json",
+                // 'Authorization': `Bearer ${userCredentials.token}`
+            },
+        }
+        try {
+            const response = await fetch(`${BASE_URL}/schedule/${id}`, params);
+            if (response.ok) {
+                const data = await response.json();
+
+                setData(data)
+                // setGetAllJobs((prev) => {
+                //     return {
+                //         ...prev, isDataNeeded: true
+                //     }
+                // })
+                // onSuccess({
+                //     message: "Message",
+                //     success: data.message
+                // })
+                // setIsDeleting(false)
+            }
+        } catch (error) {
+            if (error.response) {
+                // onSuccess({
+                //     message: "Message",
+                //     success: error.response.message
+                // })
+            } else {
+                // onSuccess({
+                //     message: "Message",
+                //     success: error.message
+                // })
+            }
+            // setIsDeleting(false)
+        }
+    }
+    useEffect(() => {
+        deleteFunc();
+    }, [])
 
     return (
         <div>
@@ -33,12 +89,12 @@ const PhysicalCourseDetails = () => {
                                     <span className='ml-1'>1 Year Certificate</span>
                                 </div>
                             </div>
-                            <h1 className="h2 mb-4">Autism Training  </h1>
-                            <p className='md:w-[80%] '>This autism training course aims to improve the communication skills of staff working or living with a person with Autism.</p>
+                            <h1 className="h2 mb-4">{course.courseTitle}  </h1>
+                            <p className='md:w-[80%] '>{course.summary}</p>
                             <button className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'>Make a Group Enquiry <FaLongArrowAltRight className='ml-2 hidden md:block' /> </button>
                         </div>
                         <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">
-                            <div style={{ backgroundImage: `url(${nursingImg})`, backgroundSize: "cover" }} className="my-5 size-[200px] md:size-[300px] rounded-full">
+                            <div style={{ backgroundImage: `url(${course.file})`, backgroundSize: "cover" }} className="my-5 size-[200px] md:size-[300px] rounded-full">
                                 {/* <img src={nursingImg} alt="" className="size-[200px] md:size-[300px] rounded-full" /> */}
                             </div>
                         </div>
@@ -48,7 +104,7 @@ const PhysicalCourseDetails = () => {
             <div className="my-14">
                 <div className="container md:px-12">
                     <div className="my-24">
-                        <CourseTable />
+                        <CourseTable data={data} />
                     </div>
                     <div className="md:flex">
                         <div className="md:w-[40%]">

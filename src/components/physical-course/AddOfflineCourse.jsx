@@ -101,9 +101,9 @@ const AddOfflineCourse = () => {
 
             });
     }
-    console.log(details)
+    // console.log(details)
     return (
-        <div>
+        <div className='flex'>
             <button onClick={handleOpen}>
                 <IoMdAddCircle className='hover_effect' size={40} />
             </button>

@@ -7,10 +7,11 @@ import AddOfflineCourse from '../../components/physical-course/AddOfflineCourse'
 import AdminCourseTable from '../../components/physical-course/AminCourseTable'
 import { ResourceContext } from '../../components/context/ResourceContext'
 import AddSchedule from '../../components/physical-course/AddSchedule'
+import UsersTable from '../../components/users/UsersTable'
 
 const AdminDashboard = () => {
-  const { getAllCourse, setGetAllCourse } = useContext(ResourceContext);
-
+  const { getAllCourse, setGetAllCourse, getAllUsers, setGetAllUsers } = useContext(ResourceContext);
+  const [display, setDisplay] = useState("courses")
   useEffect(() => {
     setGetAllCourse((prev) => {
       return {
@@ -19,6 +20,19 @@ const AdminDashboard = () => {
     })
   }, [])
 
+  useEffect(() => {
+    setGetAllUsers((prev) => {
+      return {
+        ...prev, isDataNeeded: true
+      }
+    })
+  }, [])
+
+  const handleDisplay = (e) => {
+    setDisplay(e)
+  }
+
+  // console.log(getAllUsers)
   return (
     <div style={{ overflow: "scroll" }} className='overflow-hidden h-full'>
       <div>
@@ -34,7 +48,7 @@ const AdminDashboard = () => {
                   </div>
                   <div className="ml-4">
                     <div className="text-3xl flex items-center text-purple-400">
-                      <p className='font-bolder font-bold text-black'>$3249</p>
+                      <p className='font-bolder font-bold text-black'>{getAllCourse.data?.length}</p>
                       <span><MdArrowDropDown size={30} /> </span>
                     </div>
                   </div>
@@ -46,11 +60,11 @@ const AdminDashboard = () => {
                 <p className="font-semibold text-lg mb-3 uppercase">Enroll Users</p>
                 <div className="flex items-center">
                   <div className='size-[70px] rounded-full bg-purple-400 flex items-center justify-center text-white'>
-                    <FaUsers size={35} />
+                    <FaUsers size={25} />
                   </div>
                   <div className="ml-4">
                     <div className="text-3xl flex items-center text-purple-400">
-                      <p className='font-bolder font-bold text-black mr-2'>$3249</p>
+                      <p className='font-bolder font-bold text-black mr-2'>{getAllUsers.data?.length}</p>
                       <span><FaArrowRightArrowLeft size={15} /> </span>
                     </div>
                   </div>
@@ -89,7 +103,18 @@ const AdminDashboard = () => {
             </MaterialCard>
           </div>
           <div className='p-4'>
-            <AdminCourseTable getAllCourse={getAllCourse.data} />
+            <div className="bg-blue-100/30 flex">
+              <button onClick={() => handleDisplay("courses")} className='px-5 py-3 bg-gray-100 border'>Courses</button>
+              <button onClick={() => handleDisplay("users")} className='px-5 py-3 bg-gray-100 border'>Users</button>
+            </div>
+            {
+              display === "courses" && <AdminCourseTable getAllCourse={getAllCourse.data} />
+            }
+            {
+              display === "users" && <UsersTable setGetAllUsers={setGetAllUsers} data={getAllUsers.data} />
+            }
+
+
           </div>
         </div>
       </div>

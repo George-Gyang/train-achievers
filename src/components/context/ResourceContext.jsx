@@ -7,12 +7,18 @@ export const ResourceContext = createContext();
 const ResourceContextProvider = ({ children }) => {
     const [errorMesage, setErrorMessage] = useState('');
     const [activeNav, setActiveNav] = useState("")
+
     const [getAllSchedules, setGetAllSchedules] = useState({
         data: null,
         isDataNeeded: false,
     });
 
     const [getAllCourse, setGetAllCourse] = useState({
+        data: null,
+        isDataNeeded: false,
+    });
+
+    const [getAllUsers, setGetAllUsers] = useState({
         data: null,
         isDataNeeded: false,
     });
@@ -35,6 +41,16 @@ const ResourceContextProvider = ({ children }) => {
             getItemFunc(setGetAllCourse, setErrorMessage, endPoint, dataArray)
         }
     }, [getAllCourse.isDataNeeded]);
+
+    useEffect(() => {
+        setErrorMessage('');
+        if (getAllUsers.isDataNeeded) {
+            const endPoint = "/users"
+            const dataArray = "allUsers"
+            getItemFunc(setGetAllUsers, setErrorMessage, endPoint, dataArray)
+        }
+    }, [getAllUsers.isDataNeeded]);
+
     return (
         <ResourceContext.Provider value={{
             activeNav,
@@ -43,6 +59,8 @@ const ResourceContextProvider = ({ children }) => {
             setGetAllCourse,
             getAllSchedules,
             setGetAllSchedules,
+            getAllUsers,
+            setGetAllUsers,
         }}>
             {children}
         </ResourceContext.Provider>

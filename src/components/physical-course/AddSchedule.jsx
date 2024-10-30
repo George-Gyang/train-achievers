@@ -110,9 +110,9 @@ const AddSchedule = () => {
 
             });
     }
-    console.log(details)
+    // console.log(details)
     return (
-        <div>
+        <div className='flex'>
             <button onClick={handleOpen}>
                 <IoMdAddCircle className='hover_effect' size={40} />
             </button>
@@ -235,7 +235,7 @@ const AddSchedule = () => {
                             </div>
                             <CustomSelect
                                 name={"courseId"}
-                                label={"Course ID"}
+                                label={"Select Course"}
                                 getData={getAllCourse.data}
                                 handleOnChange={handleOnChange}
                             />

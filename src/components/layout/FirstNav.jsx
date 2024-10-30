@@ -11,7 +11,7 @@ const FirstNav = () => {
     const { userInfo, setUserInfo } = useContext(AuthContext)
 
     const navigate = useNavigate();
-    console.log(userInfo)
+
     function logout() {
         console.log("hello")
         fetch(`${BASE_URL}/logout`, {

@@ -25,7 +25,6 @@ const NavbarComponent = () => {
                                 const activeLink = activeNav == each.link;
                                 const index = i + 1
                                 const last = index === navItems.length
-                                console.log(last)
                                 return (
                                     <li key={i} className={`me-4 hover:bg-light-blue-300 text-white font-medium text-nowrap p-1 px-2 border-b-2 border-light-blue-300 border-2 rounded-full ${activeLink ? "border-purple-300 secondary_bg" : "primary_bg"}`}>
                                         <Link target={last ? "_blank" : "_self"} className=' text-lg' to={each.route}>{each.link}</Link>

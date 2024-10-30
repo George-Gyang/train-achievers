@@ -22,8 +22,6 @@ const FlexibleCourses = () => {
         setActivate(true)
     }, 500);
 
-    console.log(activate);
-
     return (
         <div>
             <Container className='mb-'>

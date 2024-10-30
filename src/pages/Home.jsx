@@ -48,7 +48,6 @@ const Home = () => {
                             autoPlay
                             loop
                             muted
-                            playbackRate="2"
                             preload={"auto"}
                             className='w-full h-full object-cover'
                             src={homeVid}></video>

@@ -12,7 +12,6 @@ const MostPopularCourses = () => {
         })
     }, [])
 
-    console.log(getAllCourse)
     return (
         <div>
             {/* <h2 className="text-center h2 font-semibold my-10">Most Popular Course</h2> */}

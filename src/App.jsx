@@ -36,7 +36,7 @@ const App = () => {
       delay: 100,
     });
   }, [])
-
+console.log(userInfo)
   return (
     <>
       <ToastContainer
@@ -61,11 +61,11 @@ const App = () => {
               <Route path='/course/:id' element={<CourseDetails />} />
               <Route path='/practical_course' element={<PhysicalCourses />} />
               <Route path='/practical_course/course' element={<PhysicalCourseList />} />
-              <Route path='/practical_course/course/:id' element={<PhysicalCourseDetails />} />
+              <Route path='/practical_course/:id' element={<PhysicalCourseDetails />} />
               <Route path='/prep_training' element={<PrepTraining />} />
               <Route path='/cpd_course' element={<CPDCourses />} />
               <Route path='/cpd_course/:id' element={<CPDDetails />} />
-              {userInfo && (
+              {userInfo?.role === "admin" && (
                 <Route path='/dashboard' element={<Dashboard />} />
               )}
               <Route path='/admin' >
