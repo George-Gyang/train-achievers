@@ -83,6 +83,7 @@ export default function UsersTable({ data, setGetAllUsers }) {
                             </td>
                             <td className="p-4">
                                 <AssignAdmin
+                                role={role}
                                 id={id}
                                  setGetAllUsers={setGetAllUsers} />
                             </td>

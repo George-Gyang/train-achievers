@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MaterialCard from '../../components/general/Card'
 import { BiSolidBookAlt } from 'react-icons/bi'
-import { MdArrowDropDown } from 'react-icons/md'
+import { MdArrowDropDown, MdOutlineCollectionsBookmark, MdOutlinePeopleAlt } from 'react-icons/md'
 import { FaArrowRightArrowLeft, FaUsers } from 'react-icons/fa6'
 import AddOfflineCourse from '../../components/physical-course/AddOfflineCourse'
 import AdminCourseTable from '../../components/physical-course/AminCourseTable'
@@ -104,8 +104,16 @@ const AdminDashboard = () => {
           </div>
           <div className='p-4'>
             <div className="bg-blue-100/30 flex">
-              <button onClick={() => handleDisplay("courses")} className='px-5 py-3 bg-gray-100 border'>Courses</button>
-              <button onClick={() => handleDisplay("users")} className='px-5 py-3 bg-gray-100 border'>Users</button>
+              <button onClick={() => handleDisplay("courses")} className={`flex items-center px-5 py-3 border ${display === "courses" ? "bg-gray-50 text-purple-400" : "bg-transparent"}`}>
+                <span className='mr-1'>
+                  <MdOutlineCollectionsBookmark size={20} />
+                </span>
+                Courses</button>
+              <button onClick={() => handleDisplay("users")} className={`flex items-center px-5 py-3 border ${display === "users" ? "bg-gray-50 text-purple-400 " : "bg-transparent"}`}>
+              <span className='mr-1'>
+                  <MdOutlinePeopleAlt size={20} />
+                </span>
+                Users</button>
             </div>
             {
               display === "courses" && <AdminCourseTable getAllCourse={getAllCourse.data} />

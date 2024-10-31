@@ -58,7 +58,7 @@ export default function LoginComponent() {
                 setUserInfo(response.data)
                 localStorage.setItem("userDetails", JSON.stringify(response.data));
                 setLoading(false)
-                navigate("/dashboard");
+                navigate(`${response.data.details.role === "admin" ? "/admin/dashboard" : "/dashboard"}`);
             })
             .catch((error) => {
                 console.log(error)

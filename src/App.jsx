@@ -36,7 +36,8 @@ const App = () => {
       delay: 100,
     });
   }, [])
-console.log(userInfo)
+  const details = userInfo?.details
+  // console.log(userInfo)
   return (
     <>
       <ToastContainer
@@ -65,12 +66,12 @@ console.log(userInfo)
               <Route path='/prep_training' element={<PrepTraining />} />
               <Route path='/cpd_course' element={<CPDCourses />} />
               <Route path='/cpd_course/:id' element={<CPDDetails />} />
-              {userInfo?.role === "admin" && (
+              {details?.role === "user" && (
                 <Route path='/dashboard' element={<Dashboard />} />
               )}
               <Route path='/admin' >
                 <Route index element={<Login />} />
-                {userInfo && (
+                {details?.role === "admin" && (
                   <Route path='/admin/dashboard' element={<AdminLayout />}>
                     <Route index element={<AdminDashboard />} />
                     {/* <Route path='/admin/dashboard/add_user' element={<AddUser />} />

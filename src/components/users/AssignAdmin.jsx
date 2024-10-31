@@ -12,7 +12,7 @@ import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { onSuccess } from "../general/OnSuccess";
 
-export default function AssignAdmin({ setGetAllUsers, id }) {
+export default function AssignAdmin({ setGetAllUsers, id, role }) {
     const { userInfo } = useContext(AuthContext)
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function AssignAdmin({ setGetAllUsers, id }) {
         role: "admin"
     })
 
+    const addAdmin = role === "admin"
 
     const handleAssignment = (e) => {
         e.preventDefault();
@@ -76,7 +77,7 @@ export default function AssignAdmin({ setGetAllUsers, id }) {
     }
     return (
         <>
-            <Button onClick={handleOpen} variant="gradient">
+            <Button disabled={addAdmin} onClick={handleOpen} variant="gradient">
                 Make Admin
             </Button>
             <Dialog size="xs" className="hello_world" open={open} handler={handleOpen}>
