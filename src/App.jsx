@@ -23,6 +23,7 @@ import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 import AdminLayout from './admin-layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import VerifyOtp from './pages/VerifyOtp';
 
 
 const App = () => {
@@ -87,6 +88,7 @@ const App = () => {
 
               </Route>
               < Route path='/login' element={<Login />} />
+              < Route path='/verify_otp' element={<VerifyOtp />} />
               <Route path='/registration' element={<Registration />} />
               <Route path="*" element={<Navigate to="/not-found" replace />} />
               <Route path="/not-found" element={<NotFound />} />

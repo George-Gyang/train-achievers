@@ -9,7 +9,7 @@ export const navItems = [
     },
     {
         link: "Prep Training",
-        route: "/prep_training"
+        route: "https://trainwithachievers.com"
     },
     {
         link: "CPD Courses",

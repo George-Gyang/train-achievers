@@ -197,3 +197,7 @@ div:has(.hello_world) {
     rgba(146, 196, 234, 1) 69%
   );
 }
+
+.w_20em{
+  width: 2em !important;
+}

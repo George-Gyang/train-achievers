@@ -68,12 +68,13 @@ export default function RegistrationForm() {
         },)
             .then((response) => {
                 console.log(response.data)
+                localStorage.setItem("achieversEmail", details.email)
                 onSuccess({
                     message: "Message",
                     success: response.data.message
                 })
                 restart();
-                navigate("/login")
+                navigate("/verify_otp")
                 setLoading(false)
                 // setGetAllAdmin((prev) => {
                 //     return {

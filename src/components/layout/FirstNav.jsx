@@ -13,7 +13,6 @@ const FirstNav = () => {
     const navigate = useNavigate();
 
     function logout() {
-        console.log("hello")
         fetch(`${BASE_URL}/logout`, {
             method: "POST",
             headers: {
