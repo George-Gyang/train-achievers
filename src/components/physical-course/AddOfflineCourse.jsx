@@ -19,6 +19,7 @@ const AddOfflineCourse = () => {
         courseTitle: "",
         summary: "",
         courseView: "",
+        availability: "",
         file: null
     });
 
@@ -101,7 +102,13 @@ const AddOfflineCourse = () => {
 
             });
     }
-    // console.log(details)
+
+    const options = [];
+    for (let i = 10; i <= 50; i += 5) {
+        options.push(<option key={i} value={i}>{i}</option>);
+    }
+
+    console.log(details)
     return (
         <div className='flex'>
             <button onClick={handleOpen}>
@@ -216,12 +223,34 @@ const AddOfflineCourse = () => {
                                     containerProps={{ className: "min-w-[100%]" }}
                                 />
                             </div>
+
+                            <div class="w-full max-w-sm min-w-[200px]">
+                                <label class="block font-bold text-black mb-1 text-sm text-slate-800">
+                                   Max Population
+                                </label>
+
+                                <div class="relative">
+                                    <select
+                                        size={"lg"}
+                                        name='availability'
+                                        onChange={handleOnChange}
+                                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2.5 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
+                                        <option value="">-- select --</option>
+                                        {/* <option value="Online">Online</option>
+                                        <option value="Offline">Offline</option> */}
+                                        {options}
+                                    </select>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        
+
                         <TextEditor
-                                textValue={details.courseView}
-                                handleText={handleComments} 
-                                />
+                            textValue={details.courseView}
+                            handleText={handleComments}
+                        />
                     </div>
                     {
                         errorMsg && (

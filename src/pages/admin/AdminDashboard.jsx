@@ -32,6 +32,7 @@ const AdminDashboard = () => {
     setDisplay(e)
   }
 
+
   // console.log(getAllUsers)
   return (
     <div style={{ overflow: "scroll" }} className='overflow-hidden h-full'>
@@ -110,7 +111,7 @@ const AdminDashboard = () => {
                 </span>
                 Courses</button>
               <button onClick={() => handleDisplay("users")} className={`flex items-center px-5 py-3 border ${display === "users" ? "bg-gray-50 text-purple-400 " : "bg-transparent"}`}>
-              <span className='mr-1'>
+                <span className='mr-1'>
                   <MdOutlinePeopleAlt size={20} />
                 </span>
                 Users</button>

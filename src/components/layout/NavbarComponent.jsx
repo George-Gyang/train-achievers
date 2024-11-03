@@ -5,17 +5,22 @@ import { MdCall } from 'react-icons/md'
 import NavDropdown from './NavDropdown'
 import { MobileNav } from './MobileNav'
 import { ResourceContext } from '../context/ResourceContext'
+import logo from "../../assets/png/new-logo.png"
 
 const NavbarComponent = () => {
     const { activeNav } = useContext(ResourceContext)
     const navigate = useNavigate
     // console.log(activeNav)
     return (
+        <nav className="bg-blue-gray-900">
         <div className='container popins py-3'>
             <div className="d-flex align-items-center justify-content-between">
                 <div>
                     <Link to={"/"} className='nav-link'>
-                        <h5 ><span className="primary_color">TRAIN</span><span className="secondary_color">ACHIEVERS</span></h5>
+                        <div className="w-[80px]">
+                            <img src={logo} alt="" className="" />
+                        </div>
+                        {/* <h5 ><span className="primary_color">TRAIN</span><span className="secondary_color">ACHIEVERS</span></h5> */}
                     </Link>
                 </div>
                 <div className='col-md-6 d-none d-md-block'>
@@ -47,6 +52,7 @@ const NavbarComponent = () => {
                 </div>
             </div>
         </div>
+        </nav>
     )
 }
 

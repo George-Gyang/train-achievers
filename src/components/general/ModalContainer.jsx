@@ -24,7 +24,7 @@ export function ModalContainer({ children, open, title, setOpen }) {
                     <DialogBody className="overflow-scroll h-[400px] ">
                         {children}
                     </DialogBody>
-                    <DialogFooter>
+                    {/* <DialogFooter>
                         <Button
                             variant="text"
                             color="red"
@@ -36,7 +36,7 @@ export function ModalContainer({ children, open, title, setOpen }) {
                         <Button variant="gradient" color="green" onClick={handleOpen}>
                             <span>Confirm</span>
                         </Button>
-                    </DialogFooter>
+                    </DialogFooter> */}
                 </Dialog>
             </div>
         </>
