@@ -77,7 +77,7 @@ const AdminDashboard = () => {
                 <p className="font-semibold text-lg mb-3 uppercase">add Course</p>
                 <div className="flex items-center">
                   <div className='size-[70px] rounded-full bg-purple-400 flex items-center justify-center text-white'>
-                    <AddOfflineCourse />
+                    <AddOfflineCourse setGetAllCourse={setGetAllCourse} />
                   </div>
                   <div className="ml-4">
                     <div className="text-3xl flex items-center text-purple-400">

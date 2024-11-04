@@ -9,7 +9,7 @@ import { onSuccess } from '../general/OnSuccess';
 import { AuthContext } from '../context/AuthContext';
 import TextEditor from '../general/TextEditor';
 
-const AddOfflineCourse = () => {
+const AddOfflineCourse = ({setGetAllCourse}) => {
     const { userInfo } = useContext(AuthContext)
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
@@ -20,6 +20,7 @@ const AddOfflineCourse = () => {
         summary: "",
         courseView: "",
         availability: "",
+        price: "",
         file: null
     });
 
@@ -28,6 +29,8 @@ const AddOfflineCourse = () => {
             courseTitle: "",
             summary: "",
             courseView: "",
+            price: "",
+            availability: "",
             file: null
         })
     }
@@ -52,11 +55,11 @@ const AddOfflineCourse = () => {
     };
     const handleRegistration = (e) => {
         e.preventDefault();
-        // setGetAllAdmin((prev) => {
-        //     return {
-        //         ...prev, isDataNeeded: false
-        //     }
-        // })
+        setGetAllCourse((prev) => {
+            return {
+                ...prev, isDataNeeded: false
+            }
+        })
         setLoading(true)
         setErrorMsg(null)
         console.log(details)
@@ -74,11 +77,11 @@ const AddOfflineCourse = () => {
                 restart();
                 handleOpen();
                 setLoading(false)
-                // setGetAllAdmin((prev) => {
-                //     return {
-                //         ...prev, isDataNeeded: true
-                //     }
-                // })
+                setGetAllCourse((prev) => {
+                    return {
+                        ...prev, isDataNeeded: true
+                    }
+                })
 
             })
             .catch((error) => {
@@ -158,6 +161,24 @@ const AddOfflineCourse = () => {
                                     containerProps={{ className: "min-w-[100%]" }}
                                 />
                             </div>
+                            <div className="">
+                                <Typography variant="h6" color="blue-gray" className="mb">
+                                   Cost Price
+                                </Typography>
+                                <Input
+                                    size="lg"
+                                    type="text"
+                                    name="price"
+                                    value={details.price}
+                                    onChange={handleOnChange}
+                                    placeholder="Cost"
+                                    className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                    labelProps={{
+                                        className: "before:content-none after:content-none",
+                                    }}
+                                    containerProps={{ className: "min-w-[100%]" }}
+                                />
+                            </div>
                             {/* <div className="">
                                 <Typography variant="h6" color="blue-gray" className="mb">
                                     Country
@@ -226,7 +247,7 @@ const AddOfflineCourse = () => {
 
                             <div class="w-full max-w-sm min-w-[200px]">
                                 <label class="block font-bold text-black mb-1 text-sm text-slate-800">
-                                   Max Population
+                                    Max Population
                                 </label>
 
                                 <div class="relative">
@@ -246,10 +267,10 @@ const AddOfflineCourse = () => {
                                 </div>
                             </div>
                         </div>
-
                         <TextEditor
                             textValue={details.courseView}
                             handleText={handleComments}
+                            label="Course View"
                         />
                     </div>
                     {

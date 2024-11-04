@@ -52,11 +52,45 @@ const Otp = () => {
                 }
             });
     }
-    console.log(otp)
+
+    const handleOtpResend = async (event) => {
+        const otpDetails = {
+            email: currentEmail
+        }
+        setErrorMsg("")
+        setLoading(true)
+        axios.put(`${BASE_URL}/user`, otpDetails,)
+            .then((response) => {
+                onSuccess({
+                    message: "Message",
+                    success: response.data.message
+                })
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.log(error);
+                if (error.response) {
+                    onSuccess({
+                        message: "Message",
+                        success: response.data.message
+                    })
+                    setErrorMsg(error.data.response)
+                    setLoading(false);
+                } else {
+                    onSuccess({
+                        message: "Message",
+                        success: error.message
+                    })
+                    setErrorMsg(error.message)
+                    setLoading(false);
+                }
+            });
+    }
+
     return (
         <div>
-            <div class="flex flex-col items-center space-y-4">
-                <p class="text-sm text-slate-600">Enter the 4-digit OTP sent to <span class="font-bold">{currentEmail}</span></p>
+            <div className="flex flex-col items-center space-y-4">
+                <p className="text-sm text-slate-600">Enter the 4-digit OTP sent to <span className="font-bold">{currentEmail}</span></p>
                 <form onSubmit={handleOtpSubmit}>
                     <OtpInput
                         inputStyle="h-10 w_20em bg-transparent text-center placeholder:text-slate-400 text-slate-700 text-lg border border-slate-200 rounded-md transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
@@ -74,8 +108,10 @@ const Otp = () => {
                         </Button>
                     </div>
                 </form>
-                <p class="text-xs text-slate-400 mt-4">
-                    Did not receive the code? <span class="font-bold cursor-pointer">Resend</span>
+                <p className="text-xs text-slate-400 mt-4">
+                    Did not receive the code? <button
+                    onClick={()=> handleOtpResend()}
+                     className="font-bold border px-2 py-1 cursor-pointer">Resend</button>
                 </p>
             </div>
         </div>

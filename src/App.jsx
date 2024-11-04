@@ -38,7 +38,7 @@ const App = () => {
     });
   }, [])
   const details = userInfo?.details
-  // console.log(userInfo)
+  console.log(userInfo)
   return (
     <>
       <ToastContainer

@@ -1,24 +1,47 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import nursingImg from "../assets/jpg/nursing.jpeg"
 import { FaLongArrowAltRight } from 'react-icons/fa'
 import { BsStack } from 'react-icons/bs'
 import { FaArrowRight, FaCertificate, FaCheck, FaClock } from 'react-icons/fa6'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import GroupEnquirySection from '../components/general/GroupEnquirySection'
 import CourseTable from '../components/physical-course/CourseTable'
 import { BASE_URL } from '../components/utils/base'
+import { HiOutlineCurrencyDollar } from 'react-icons/hi'
+import axios from 'axios'
+import { onSuccess } from '../components/general/OnSuccess'
+import { AuthContext } from '../components/context/AuthContext'
+import { Spinner } from '@material-tailwind/react'
 
 const PhysicalCourseDetails = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { state } = useLocation();
+    const [update, setUpdate] = useState(false);
     const [data, setData] = useState();
+    const [users, setUsers] = useState();
+    const { userInfo } = useContext(AuthContext)
+    const [errorMsg, setErrorMsg] = useState("");
+    const [loading, setLoading] = useState(false);
+
     const { course } = state;
+    const details = userInfo?.details
+
     useEffect(() => {
         // setActiveNav("Career")
         window.scrollTo(0, 0);
+        getCourseTimetable();
     }, []);
 
-    const deleteFunc = async () => {
+    const mainDetails = {
+        userId: details?.id,
+        paymentId: "1234567890",
+        userEmail: details?.email,
+        userPhone: details?.phone,
+        username: `${details?.firstName}`,
+        courseId: course.id,
+    }
+    const getCourseTimetable = async () => {
 
         // setGetAllJobs((prev) => {
         //     return {
@@ -65,9 +88,99 @@ const PhysicalCourseDetails = () => {
             // setIsDeleting(false)
         }
     }
+
+    const getCourseUsers = async () => {
+
+        // setGetAllJobs((prev) => {
+        //     return {
+        //         ...prev, isDataNeeded: false
+        //     }
+        // })
+        // setIsDeleting(true)
+        const params = {
+            method: 'GET',
+            headers: {
+                'Content-Type': "application/json",
+                // 'Authorization': `Bearer ${userCredentials.token}`
+            },
+        }
+        try {
+            const response = await fetch(`${BASE_URL}/course_apply/${id}`, params);
+            if (response.ok) {
+                const data = await response.json();
+
+                setUsers(data)
+                // setGetAllJobs((prev) => {
+                //     return {
+                //         ...prev, isDataNeeded: true
+                //     }
+                // })
+                // onSuccess({
+                //     message: "Message",
+                //     success: data.message
+                // })
+                // setIsDeleting(false)
+            }
+        } catch (error) {
+            if (error.response) {
+                // onSuccess({
+                //     message: "Message",
+                //     success: error.response.message
+                // })
+            } else {
+                // onSuccess({
+                //     message: "Message",
+                //     success: error.message
+                // })
+            }
+            // setIsDeleting(false)
+        }
+    }
+    // console.count("render")
+
+    const handleCourseApplication = (e) => {
+        setLoading(true)
+        setErrorMsg(null)
+        axios.post(`${BASE_URL}/course_apply`, mainDetails, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+                // 'Content-Type': 'multipart/form-data',
+            }
+        },)
+            .then((response) => {
+                onSuccess({
+                    message: "Message",
+                    success: response.data.message
+                })
+                setLoading(false)
+                setUpdate(true)
+            })
+            .catch((error) => {
+                if (error.response) {
+                    // console.log(error.response)
+                    setErrorMsg(error.response.data.message)
+                    setLoading(false)
+                    onSuccess({
+                        message: "Message",
+                        success: error.response.data.message
+                    })
+                } else {
+                    console.log(error)
+                    setLoading(false)
+                    setErrorMsg(error.message)
+                    onSuccess({
+                        message: "Message",
+                        success: error.message
+                    })
+                }
+
+            });
+    }
+
+
     useEffect(() => {
-        deleteFunc();
-    }, [])
+        getCourseUsers();
+    }, [update]);
 
     return (
         <div>
@@ -78,11 +191,12 @@ const PhysicalCourseDetails = () => {
                             <div className="flex mb-5">
                                 <div className="bg-white/[0.1] flex items-center mr-2 p-1 px-3 rounded-full">
                                     <BsStack />
-                                    <span className='ml-1'>Level 2</span>
+                                    <span className='ml-1'>Places {users?.length} / {course.availability} </span>
                                 </div>
                                 <div className="bg-white/[0.1] flex items-center mr-2 p-1 px-3 rounded-full">
-                                    <FaClock />
-                                    <span className='ml-1'>3 Hours Duration</span>
+                                    {/* <FaClock /> */}
+                                    <HiOutlineCurrencyDollar size={22} />
+                                    <span className='ml-1'> <span className="text-2xl font-bold">${course.price}</span> </span>
                                 </div>
                                 <div className="bg-white/[0.1] flex items-center mr-2 p-1 px-3 rounded-full">
                                     <FaCertificate />
@@ -91,7 +205,19 @@ const PhysicalCourseDetails = () => {
                             </div>
                             <h1 className="h2 mb-4">{course.courseTitle}  </h1>
                             <p className='md:w-[80%] '>{course.summary}</p>
-                            <button className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'>Make a Group Enquiry <FaLongArrowAltRight className='ml-2 hidden md:block' /> </button>
+                            <button
+                                onClick={() => {
+                                    if (userInfo) {
+                                        handleCourseApplication()
+                                    } else {
+                                        navigate("/login")
+                                    }
+                                }}
+                                disabled={loading}
+                                className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'
+                            >Add Course
+                                {loading ? <Spinner className='size-4' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
+                            </button>
                         </div>
                         <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">
                             <div style={{ backgroundImage: `url(${course.file})`, backgroundSize: "cover" }} className="my-5 size-[200px] md:size-[300px] rounded-full">

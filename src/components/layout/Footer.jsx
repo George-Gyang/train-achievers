@@ -35,7 +35,7 @@ const Footer = () => {
                             </div>
                             <div className="d-flex align-items-center mb-2">
                                 <span className='secondary_color me-2'><HiOutlineMailOpen size={20} /></span>
-                                <Link to={"mailto:0800 123 0984"} className='nav-link hover_primary_color'>0800 123 0984</Link>
+                                <Link to={"mailto:admin@mail.com"} className='nav-link hover_primary_color'>admin@mail.com</Link>
                             </div>
                             <div className="d-flex align-items-center mb-2">
                                 <span className='secondary_color me-2'><FaLocationArrow size={20} /></span>
