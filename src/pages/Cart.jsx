@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { BASE_URL } from '../components/utils/base';
 import { ResourceContext } from '../components/context/ResourceContext';
 import { onSuccess } from '../components/general/OnSuccess';
