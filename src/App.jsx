@@ -24,6 +24,7 @@ import NotFound from './pages/NotFound';
 import AdminLayout from './admin-layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import VerifyOtp from './pages/VerifyOtp';
+import Cart from './pages/Cart';
 
 
 const App = () => {
@@ -67,6 +68,9 @@ const App = () => {
               <Route path='/prep_training' element={<PrepTraining />} />
               <Route path='/cpd_course' element={<CPDCourses />} />
               <Route path='/cpd_course/:id' element={<CPDDetails />} />
+              {userInfo &&
+              <Route path='/carts' element={<Cart />} />
+            }
               {details?.role === "user" && (
                 <Route path='/dashboard' element={<Dashboard />} />
               )}

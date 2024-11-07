@@ -1,10 +1,12 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { getItemFunc } from "../utils/getApi";
+import { AuthContext } from "./AuthContext";
 
 export const ResourceContext = createContext();
 
 
 const ResourceContextProvider = ({ children }) => {
+    const { userInfo } = useContext(AuthContext)
     const [errorMesage, setErrorMessage] = useState('');
     const [activeNav, setActiveNav] = useState("")
 
@@ -19,6 +21,11 @@ const ResourceContextProvider = ({ children }) => {
     });
 
     const [getAllUsers, setGetAllUsers] = useState({
+        data: null,
+        isDataNeeded: false,
+    });
+
+    const [getUserCart, setGetUserCart] = useState({
         data: null,
         isDataNeeded: false,
     });
@@ -51,6 +58,18 @@ const ResourceContextProvider = ({ children }) => {
         }
     }, [getAllUsers.isDataNeeded]);
 
+    // cart by User ID
+    useEffect(() => {
+        setErrorMessage('');
+        if (userInfo) {
+            if (getUserCart.isDataNeeded) {
+                const endPoint = `/user_cart/${userInfo.details.id}`
+                const dataArray = "userCart"
+                getItemFunc(setGetUserCart, setErrorMessage, endPoint, dataArray)
+            }
+        }
+    }, [getUserCart.isDataNeeded]);
+
     return (
         <ResourceContext.Provider value={{
             activeNav,
@@ -61,6 +80,8 @@ const ResourceContextProvider = ({ children }) => {
             setGetAllSchedules,
             getAllUsers,
             setGetAllUsers,
+            getUserCart,
+            setGetUserCart,
         }}>
             {children}
         </ResourceContext.Provider>

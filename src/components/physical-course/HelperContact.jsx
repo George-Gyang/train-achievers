@@ -40,7 +40,7 @@ export default function HelperContact() {
                         }}
                     />
                     <Typography variant="h6" color="blue-gray" className="-mb-3">
-                        Password
+                        Comment
                     </Typography>
                     <Input
                         type="password"

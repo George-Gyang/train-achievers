@@ -12,6 +12,7 @@ import axios from 'axios'
 import { onSuccess } from '../components/general/OnSuccess'
 import { AuthContext } from '../components/context/AuthContext'
 import { Spinner } from '@material-tailwind/react'
+import { ResourceContext } from '../components/context/ResourceContext'
 
 const PhysicalCourseDetails = () => {
     const { id } = useParams();
@@ -21,6 +22,7 @@ const PhysicalCourseDetails = () => {
     const [data, setData] = useState();
     const [users, setUsers] = useState();
     const { userInfo } = useContext(AuthContext)
+    const { setGetUserCart } = useContext(ResourceContext)
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -35,9 +37,7 @@ const PhysicalCourseDetails = () => {
 
     const mainDetails = {
         userId: details?.id,
-        paymentId: "1234567890",
         userEmail: details?.email,
-        userPhone: details?.phone,
         username: `${details?.firstName}`,
         courseId: course.id,
     }
@@ -176,6 +176,54 @@ const PhysicalCourseDetails = () => {
 
             });
     }
+    const addToCart = (e) => {
+        setLoading(true)
+        setErrorMsg(null)
+        setGetUserCart((prev) => {
+            return {
+                ...prev, isDataNeeded: false
+            }
+        })
+        axios.post(`${BASE_URL}/cart`, mainDetails, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+                // 'Content-Type': 'multipart/form-data',
+            }
+        },)
+            .then((response) => {
+                onSuccess({
+                    message: "Message",
+                    success: response.data.message
+                })
+                setLoading(false)
+                setUpdate(true)
+                setGetUserCart((prev) => {
+                    return {
+                        ...prev, isDataNeeded: true
+                    }
+                })
+            })
+            .catch((error) => {
+                if (error.response) {
+                    // console.log(error.response)
+                    setErrorMsg(error.response.data.message)
+                    setLoading(false)
+                    onSuccess({
+                        message: "Message",
+                        success: error.response.data.message
+                    })
+                } else {
+                    console.log(error)
+                    setLoading(false)
+                    setErrorMsg(error.message)
+                    onSuccess({
+                        message: "Message",
+                        success: error.message
+                    })
+                }
+
+            });
+    }
 
 
     useEffect(() => {
@@ -208,15 +256,15 @@ const PhysicalCourseDetails = () => {
                             <button
                                 onClick={() => {
                                     if (userInfo) {
-                                        handleCourseApplication()
+                                        addToCart()
                                     } else {
                                         navigate("/login")
                                     }
                                 }}
                                 disabled={loading}
                                 className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'
-                            >Add Course
-                                {loading ? <Spinner className='size-4' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
+                            >Add to Cart
+                                {loading ? <Spinner className='size-4 ml-2' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
                             </button>
                         </div>
                         <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">

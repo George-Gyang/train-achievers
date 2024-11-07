@@ -62,7 +62,6 @@ const AddOfflineCourse = ({setGetAllCourse}) => {
         })
         setLoading(true)
         setErrorMsg(null)
-        console.log(details)
         axios.post(`${BASE_URL}/course`, details, {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`,
@@ -110,8 +109,6 @@ const AddOfflineCourse = ({setGetAllCourse}) => {
     for (let i = 10; i <= 50; i += 5) {
         options.push(<option key={i} value={i}>{i}</option>);
     }
-
-    console.log(details)
     return (
         <div className='flex'>
             <button onClick={handleOpen}>
