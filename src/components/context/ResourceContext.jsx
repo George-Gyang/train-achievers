@@ -29,6 +29,14 @@ const ResourceContextProvider = ({ children }) => {
         data: null,
         isDataNeeded: false,
     });
+    const [getEnrollment, setGetEnrollment] = useState({
+        data: null,
+        isDataNeeded: false,
+    });
+    const [getUserCourses, setGetUserCourses] = useState({
+        data: null,
+        isDataNeeded: false,
+    });
 
 
     useEffect(() => {
@@ -70,6 +78,26 @@ const ResourceContextProvider = ({ children }) => {
         }
     }, [getUserCart.isDataNeeded]);
 
+    useEffect(() => {
+        setErrorMessage('');
+        if (getEnrollment.isDataNeeded) {
+            const endPoint = "/enrollment"
+            const dataArray = "allList"
+            getItemFunc(setGetEnrollment, setErrorMessage, endPoint, dataArray)
+        }
+    }, [getEnrollment.isDataNeeded]);
+
+    useEffect(() => {
+        setErrorMessage('');
+        if (userInfo) {
+            if (getUserCourses.isDataNeeded) {
+                const endPoint = `/enrollByUser/${userInfo.details.id}`
+                const dataArray = "userCourses"
+                getItemFunc(setGetUserCourses, setErrorMessage, endPoint, dataArray)
+            }
+        }
+    }, [getUserCourses.isDataNeeded]);
+
     return (
         <ResourceContext.Provider value={{
             activeNav,
@@ -82,6 +110,10 @@ const ResourceContextProvider = ({ children }) => {
             setGetAllUsers,
             getUserCart,
             setGetUserCart,
+            getEnrollment,
+            setGetEnrollment,
+            getUserCourses,
+            setGetUserCourses,
         }}>
             {children}
         </ResourceContext.Provider>

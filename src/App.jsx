@@ -25,6 +25,7 @@ import AdminLayout from './admin-layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import VerifyOtp from './pages/VerifyOtp';
 import Cart from './pages/Cart';
+import SuccessPage from './pages/SuccessPage';
 
 
 const App = () => {
@@ -68,9 +69,10 @@ const App = () => {
               <Route path='/prep_training' element={<PrepTraining />} />
               <Route path='/cpd_course' element={<CPDCourses />} />
               <Route path='/cpd_course/:id' element={<CPDDetails />} />
+              <Route path='/success' element={<SuccessPage />} />
               {userInfo &&
-              <Route path='/carts' element={<Cart />} />
-            }
+                <Route path='/carts' element={<Cart />} />
+              }
               {details?.role === "user" && (
                 <Route path='/dashboard' element={<Dashboard />} />
               )}

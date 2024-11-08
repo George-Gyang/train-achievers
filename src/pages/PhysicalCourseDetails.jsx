@@ -22,7 +22,7 @@ const PhysicalCourseDetails = () => {
     const [data, setData] = useState();
     const [users, setUsers] = useState();
     const { userInfo } = useContext(AuthContext)
-    const { setGetUserCart } = useContext(ResourceContext)
+    const { setGetUserCart, getUserCourses, setGetUserCourses, getEnrollment, setGetEnrollment } = useContext(ResourceContext)
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -34,6 +34,23 @@ const PhysicalCourseDetails = () => {
         window.scrollTo(0, 0);
         getCourseTimetable();
     }, []);
+
+
+    useEffect(() => {
+        setGetUserCourses((prev) => {
+            return {
+                ...prev, isDataNeeded: true
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        setGetEnrollment((prev) => {
+            return {
+                ...prev, isDataNeeded: true
+            }
+        })
+    }, [])
 
     const mainDetails = {
         userId: details?.id,
@@ -89,93 +106,9 @@ const PhysicalCourseDetails = () => {
         }
     }
 
-    const getCourseUsers = async () => {
+    const registeredUsers = getEnrollment.data?.filter((course) => course.courseId === id)
+    const findCourse = getUserCourses.data?.filter((course) => course.courseId === id)
 
-        // setGetAllJobs((prev) => {
-        //     return {
-        //         ...prev, isDataNeeded: false
-        //     }
-        // })
-        // setIsDeleting(true)
-        const params = {
-            method: 'GET',
-            headers: {
-                'Content-Type': "application/json",
-                // 'Authorization': `Bearer ${userCredentials.token}`
-            },
-        }
-        try {
-            const response = await fetch(`${BASE_URL}/course_apply/${id}`, params);
-            if (response.ok) {
-                const data = await response.json();
-
-                setUsers(data)
-                // setGetAllJobs((prev) => {
-                //     return {
-                //         ...prev, isDataNeeded: true
-                //     }
-                // })
-                // onSuccess({
-                //     message: "Message",
-                //     success: data.message
-                // })
-                // setIsDeleting(false)
-            }
-        } catch (error) {
-            if (error.response) {
-                // onSuccess({
-                //     message: "Message",
-                //     success: error.response.message
-                // })
-            } else {
-                // onSuccess({
-                //     message: "Message",
-                //     success: error.message
-                // })
-            }
-            // setIsDeleting(false)
-        }
-    }
-    // console.count("render")
-
-    const handleCourseApplication = (e) => {
-        setLoading(true)
-        setErrorMsg(null)
-        axios.post(`${BASE_URL}/course_apply`, mainDetails, {
-            headers: {
-                Authorization: `Bearer ${userInfo.token}`,
-                // 'Content-Type': 'multipart/form-data',
-            }
-        },)
-            .then((response) => {
-                onSuccess({
-                    message: "Message",
-                    success: response.data.message
-                })
-                setLoading(false)
-                setUpdate(true)
-            })
-            .catch((error) => {
-                if (error.response) {
-                    // console.log(error.response)
-                    setErrorMsg(error.response.data.message)
-                    setLoading(false)
-                    onSuccess({
-                        message: "Message",
-                        success: error.response.data.message
-                    })
-                } else {
-                    console.log(error)
-                    setLoading(false)
-                    setErrorMsg(error.message)
-                    onSuccess({
-                        message: "Message",
-                        success: error.message
-                    })
-                }
-
-            });
-    }
     const addToCart = (e) => {
         setLoading(true)
         setErrorMsg(null)
@@ -225,11 +158,6 @@ const PhysicalCourseDetails = () => {
             });
     }
 
-
-    useEffect(() => {
-        getCourseUsers();
-    }, [update]);
-
     return (
         <div>
             <div className='secondary_bg py-12'>
@@ -239,7 +167,7 @@ const PhysicalCourseDetails = () => {
                             <div className="flex mb-5">
                                 <div className="bg-white/[0.1] flex items-center mr-2 p-1 px-3 rounded-full">
                                     <BsStack />
-                                    <span className='ml-1'>Places {users?.length} / {course.availability} </span>
+                                    <span className='ml-1'>Places {registeredUsers?.length} / {course.availability} </span>
                                 </div>
                                 <div className="bg-white/[0.1] flex items-center mr-2 p-1 px-3 rounded-full">
                                     {/* <FaClock /> */}
@@ -253,19 +181,27 @@ const PhysicalCourseDetails = () => {
                             </div>
                             <h1 className="h2 mb-4">{course.courseTitle}  </h1>
                             <p className='md:w-[80%] '>{course.summary}</p>
-                            <button
-                                onClick={() => {
-                                    if (userInfo) {
-                                        addToCart()
-                                    } else {
-                                        navigate("/login")
-                                    }
-                                }}
-                                disabled={loading}
-                                className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'
-                            >Add to Cart
-                                {loading ? <Spinner className='size-4 ml-2' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
-                            </button>
+                            {findCourse?.length > 0 ? (
+                                <button
+                                    className='btn font-semibold px-12 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'
+                                >Paid
+                                    {loading ? <Spinner className='size-4 ml-2' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        if (userInfo) {
+                                            addToCart()
+                                        } else {
+                                            navigate("/login")
+                                        }
+                                    }}
+                                    disabled={loading}
+                                    className='btn font-semibold px-6 py-3 custom_btn bg-purple-600 hover:bg-purple-500 mt-5 text-white flex items-center'
+                                >Add to Cart
+                                    {loading ? <Spinner className='size-4 ml-2' /> : <FaLongArrowAltRight className='ml-2 hidden md:block' />}
+                                </button>
+                            )}
                         </div>
                         <div className="col-md-5 flex justify-center md:justify-end md:pr-16 ">
                             <div style={{ backgroundImage: `url(${course.file})`, backgroundSize: "cover" }} className="my-5 size-[200px] md:size-[300px] rounded-full">

@@ -3,10 +3,20 @@ import { BASE_URL } from '../components/utils/base';
 import { ResourceContext } from '../components/context/ResourceContext';
 import { onSuccess } from '../components/general/OnSuccess';
 import DeleteCartBtn from '../components/cart/DeleteCartBtn';
+import axios from 'axios';
+import { AuthContext } from '../components/context/AuthContext';
+import { Spinner } from '@material-tailwind/react';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const { getUserCart, setGetUserCart } = useContext(ResourceContext)
+    const { userInfo } = useContext(AuthContext)
     const [isDeleting, setIsDeleting] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+    const details = userInfo?.details
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         setGetUserCart((prev) => {
@@ -63,12 +73,67 @@ const Cart = () => {
     }
     let total = 0;
     for (let i = 0; i < getUserCart.data?.length; i++) {
-        const price = parseFloat(getUserCart.data[i].cost) 
+        const price = parseFloat(getUserCart.data[i].cost)
         total += price;
     }
     // const total = getUserCart.data?.reduce((acc, product) => acc + product.cost, 0);
-    let totalNumber = parseFloat(total);
+    let totalAmount = parseFloat(total);
 
+    const mainDetails = {
+        userId: details?.id,
+        userEmail: details?.email,
+        username: `${details?.firstName}`,
+        amount: totalAmount,
+        paymentId: 1234567890,
+    }
+    const handleCourseApplication = (e) => {
+        setLoading(true)
+        setErrorMsg(null)
+        setGetUserCart((prev) => {
+            return {
+                ...prev, isDataNeeded: false
+            }
+        })
+        axios.post(`${BASE_URL}/course_apply`, mainDetails, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+                // 'Content-Type': 'multipart/form-data',
+            }
+        },)
+            .then((response) => {
+                onSuccess({
+                    message: "Message",
+                    success: response.data.message
+                })
+                setLoading(false)
+                setGetUserCart((prev) => {
+                    return {
+                        ...prev, isDataNeeded: true
+                    }
+                })
+                navigate("/success", { state: { mainDetails: mainDetails } })
+            })
+            .catch((error) => {
+                if (error.response) {
+                    // console.log(error.response)
+                    setErrorMsg(error.response.data.message)
+                    setLoading(false)
+                    onSuccess({
+                        message: "Message",
+                        success: error.response.data.message
+                    })
+                } else {
+                    console.log(error)
+                    setLoading(false)
+                    setErrorMsg(error.message)
+                    onSuccess({
+                        message: "Message",
+                        success: error.message
+                    })
+                }
+
+            });
+    }
     return (
         <div>
             <div className="conatiner">
@@ -111,10 +176,14 @@ const Cart = () => {
                                     </div>
                                     <div className="flex font-bold  justify-between">
                                         <p>Grand Total</p>
-                                        <p>${totalNumber}</p>
+                                        <p>${totalAmount}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <button className='bg-blue-600 w-full py-2 rounded-full text-white hover:bg-purple-600 transition-all hover:scale-105'>Checkout</button>
+                                        {errorMsg && <p className="text-center text-red-600">Error</p>}
+                                        <button
+                                            onClick={() => handleCourseApplication()}
+                                            disabled={loading}
+                                            className='bg-blue-600 w-full py-2 rounded-full text-white hover:bg-purple-600 transition-all hover:scale-105 flex justify-center items-center'>Checkout {loading && <Spinner className='size-4 ml-2' />} </button>
                                     </div>
                                 </div>
                             </div>
