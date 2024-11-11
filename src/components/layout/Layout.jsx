@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NavbarComponent from './NavbarComponent'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from './Footer'
@@ -11,6 +11,7 @@ import { ResourceContext } from '../context/ResourceContext'
 const Layouts = () => {
     const { userInfo, setUserInfo } = useContext(AuthContext)
     const { getUserCart, setGetUserCart } = useContext(ResourceContext)
+    const [loading, setIsloading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const Layouts = () => {
     }, [])
 
     function logout() {
+        setIsloading(true)
         fetch(`${BASE_URL}/logout`, {
             method: "POST",
             headers: {
@@ -33,13 +35,17 @@ const Layouts = () => {
                 localStorage.removeItem("userDetails")
                 setUserInfo(null);
                 navigate("/")
+                setIsloading(false)
                 console.log(res)
                 onSuccess({
                     message: "Message",
                     success: res
                 })
             });
-        }).catch(error => console.log(error));
+        }).catch(error => {
+            setIsloading(false)
+            console.log(error)
+        });
     }
 
     return (
