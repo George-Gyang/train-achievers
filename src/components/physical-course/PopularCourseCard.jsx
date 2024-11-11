@@ -13,21 +13,20 @@ export default function PopularCourseCard({ course }) {
     const navigate = useNavigate();
 
     return (
-        <Card className="mt-6 ">
+        <Card className="mt-6 group">
             <div className="w-full">
-                <div className="w-full group relative">
+                <div className="w-full relative">
                     <div className="w-full">
                         <img
-                            className="rounded-t-lg h-[250px] object-cover w-full"
+                            className=" h-[250px] object-cover w-full"
                             src={course.file}
                             alt="card-image"
                         />
                     </div>
-                    {/* <div className="absolute w-100 w-full transition-all group-hover:bg-black rounded-3 opacity-10 duration-300 h-full">
-                        <h1>Hello world</h1>
+                    <div className="absolute w-100 w-full transition-all top-0 h-1 group-hover:h-full group-hover:bg-black opacity-30 duration-300 h-">
                     </div>
-                    <div className="cart-icon hidden group-hover:block absolute top-4 right-4">
-                        <FaHeart color="#000" size={30} />
+                    {/* <div className="cart-icon hidden group-hover:block absolute top-4 right-4">
+                        <FaHeart className="text-blue-800" size={30} />
                     </div> */}
                 </div>
                 <CardBody className="px-3 py-4">
